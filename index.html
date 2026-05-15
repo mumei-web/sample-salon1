@@ -1,47 +1,1190 @@
 <!DOCTYPE html>
-<html>
-    <link rel="stylesheet" href="style.css">
+<html lang="ja">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <title>Sample Salon</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tem Nails（テンネイル）｜青森県八戸市の時短ネイルサロン</title>
+<meta name="description" content="青森県八戸市石堂にあるネイルサロンTem Nails（テンネイル）です。最短60分のスピード施術で忙しい毎日でも可愛いネイルを。お子様連れも大歓迎です。">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== CSS変数 ===== */
+:root {
+  --pink-bg:       #fff5f7;
+  --pink-light:    #ffe4eb;
+  --pink-mid:      #f7c5d1;
+  --pink-deep:     #e8889a;
+  --pink-accent:   #d4607a;
+  --pink-dark:     #9e3a52;
+  --cream:         #fffaf8;
+  --white:         #ffffff;
+  --text-dark:     #2d1f24;
+  --text-mid:      #5c4047;
+  --text-light:    #9a7d84;
+  --line-green:    #06c755;
+  --line-dark:     #00a040;
+  --shadow-soft:   0 4px 30px rgba(200,100,130,0.10);
+  --shadow-card:   0 8px 40px rgba(180,80,100,0.12);
+  --radius-card:   20px;
+  --radius-btn:    50px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.8;
+  overflow-x: hidden;
+  background: var(--pink-bg);
+}
+
+/* ===== ページ全体のラッパー ===== */
+.page-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 0 60px;
+}
+
+/* ===== カード共通 ===== */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  margin: 0 16px 24px;
+  overflow: hidden;
+}
+
+.card-inner {
+  padding: 36px 28px;
+}
+
+/* ===== セクションタイトル共通 ===== */
+.section-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-heading .jp-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 4px;
+  display: block;
+  line-height: 1.4;
+}
+
+.section-heading .en-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  color: var(--pink-accent);
+  display: block;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin: 16px 0 28px;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--pink-mid));
+}
+
+.section-divider::after {
+  background: linear-gradient(to left, transparent, var(--pink-mid));
+}
+
+.section-divider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pink-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== ① HERO / TOP ===== */
+.hero-wrap {
+  position: relative;
+}
+
+/* スライドショー */
+.hero-slides {
+  position: relative;
+  width: 100%;
+  height: 72vw;
+  max-height: 420px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(200,100,130,0.08) 0%,
+    rgba(100,30,50,0.45) 80%,
+    rgba(80,20,40,0.70) 100%
+  );
+  z-index: 1;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  padding: 24px 20px 28px;
+}
+
+.hero-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(38px, 11vw, 64px);
+  color: var(--white);
+  letter-spacing: 8px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hero-logo-ja {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  font-size: clamp(12px, 3.5vw, 16px);
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 8px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.hero-catch {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(12px, 3.5vw, 15px);
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* スライドドット */
+.hero-dots {
+  position: absolute;
+  bottom: 86px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+.dot.active {
+  width: 22px;
+  border-radius: 3px;
+  background: var(--white);
+}
+
+/* LINE予約ボタン (ヒーロー内) */
+.btn-line-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--line-green);
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 14px 32px;
+  border-radius: var(--radius-btn);
+  box-shadow: 0 6px 24px rgba(6,199,85,0.40);
+  transition: all 0.3s;
+  width: calc(100% - 0px);
+  max-width: 320px;
+}
+.btn-line-hero:hover {
+  background: var(--line-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(6,199,85,0.45);
+}
+
+.btn-line-hero .line-icon {
+  font-size: 22px;
+}
+
+/* ===== お知らせリボン ===== */
+.notice-ribbon {
+  background: var(--pink-light);
+  border-left: 4px solid var(--pink-accent);
+  margin: 0 16px 24px;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fadeIn 0.6s ease 0.3s both;
+}
+
+.notice-ribbon .notice-badge {
+  background: var(--pink-accent);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.notice-ribbon p {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* ===== ② 特長 ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.feature-item {
+  background: var(--pink-bg);
+  border-radius: 14px;
+  padding: 18px 14px;
+  text-align: center;
+  border: 1px solid var(--pink-light);
+  transition: all 0.3s;
+}
+
+.feature-item:hover {
+  border-color: var(--pink-mid);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.feature-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--pink-light), var(--pink-mid));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-size: 20px;
+}
+
+.feature-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.feature-desc {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ===== ③ ギャラリー ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+  background: var(--pink-light);
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item .gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(150, 50, 80, 0.0);
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item:hover .gallery-overlay {
+  background: rgba(150, 50, 80, 0.18);
+}
+
+/* placeholder */
+.gallery-placeholder {
+  background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-mid) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.gallery-placeholder i {
+  font-size: 22px;
+  color: var(--pink-accent);
+  opacity: 0.6;
+}
+
+.gallery-placeholder span {
+  font-size: 10px;
+  color: var(--pink-accent);
+  letter-spacing: 1px;
+}
+
+.gallery-note {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.gallery-note a {
+  color: var(--pink-accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--pink-mid);
+  padding-bottom: 1px;
+  transition: color 0.2s;
+}
+
+.gallery-note a:hover { color: var(--pink-dark); }
+
+/* ===== ④ メニュー・料金 ===== */
+.menu-img-slot {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--pink-bg) 0%, var(--pink-light) 100%);
+  border-radius: 14px;
+  border: 2px dashed var(--pink-mid);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  transition: border-color 0.3s;
+}
+
+.menu-img-slot:hover {
+  border-color: var(--pink-accent);
+}
+
+.menu-img-slot i {
+  font-size: 36px;
+  color: var(--pink-mid);
+}
+
+.menu-img-slot .slot-text {
+  font-size: 14px;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.menu-img-slot .slot-sub {
+  font-size: 11px;
+  color: var(--pink-deep);
+  opacity: 0.7;
+}
+
+.menu-img-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.menu-tag {
+  display: inline-block;
+  background: var(--pink-light);
+  color: var(--pink-dark);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+/* ===== ⑤ スタッフ ===== */
+.staff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.staff-item {
+  text-align: center;
+}
+
+.staff-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--pink-light);
+  box-shadow: 0 4px 20px rgba(200,100,130,0.18);
+  margin: 0 auto 12px;
+  display: block;
+  background: var(--pink-light);
+}
+
+.staff-avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-light), var(--pink-mid));
+  border: 3px solid var(--pink-light);
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.staff-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 2px;
+  margin-bottom: 2px;
+}
+
+.staff-role {
+  font-size: 11px;
+  color: var(--pink-accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 8px;
+}
+
+.staff-comment {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ===== ⑥ 予約・問い合わせ ===== */
+.reserve-card {
+  background: linear-gradient(145deg, var(--pink-dark) 0%, var(--pink-accent) 100%);
+  border-radius: var(--radius-card);
+  box-shadow: 0 12px 40px rgba(180,60,90,0.30);
+  margin: 0 16px 24px;
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.reserve-card::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+
+.reserve-card::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.reserve-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 4px;
+  margin-bottom: 6px;
+}
+
+.reserve-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+
+.btn-line-reserve {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--line-green);
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 18px 28px;
+  border-radius: var(--radius-btn);
+  box-shadow: 0 8px 28px rgba(6,199,85,0.45);
+  transition: all 0.3s;
+  margin: 0 auto 20px;
+  max-width: 340px;
+}
+
+.btn-line-reserve:hover {
+  background: var(--line-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(6,199,85,0.5);
+}
+
+.btn-line-reserve i { font-size: 24px; }
+
+.reserve-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 auto 20px;
+  max-width: 300px;
+}
+
+.reserve-divider::before,
+.reserve-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+}
+
+.reserve-divider span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+}
+
+.btn-tel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 18px 28px;
+  border-radius: var(--radius-btn);
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
+  margin: 0 auto;
+  max-width: 340px;
+}
+
+.btn-tel:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+.btn-tel i { font-size: 22px; }
+
+.tel-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 12px;
+  letter-spacing: 1px;
+}
+
+/* ===== アクセス ===== */
+.access-address {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 2;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: var(--pink-bg);
+  border-radius: 12px;
+}
+
+.access-address strong {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.map-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+  display: block;
+}
+
+/* ===== フッター ===== */
+footer {
+  background: var(--text-dark);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 40px 20px 28px;
+  margin-top: 16px;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 34px;
+  color: var(--white);
+  letter-spacing: 8px;
+  margin-bottom: 6px;
+}
+
+.footer-logo-ja {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+}
+
+.footer-info {
+  font-size: 12px;
+  line-height: 2;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 20px;
+}
+
+.footer-copy {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.25);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 16px;
+}
+
+/* ===== ライトボックス ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.90);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox img {
+  max-width: 94vw;
+  max-height: 88vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: var(--white);
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  line-height: 1;
+  background: none;
+  border: none;
+}
+.lightbox-close:hover { opacity: 1; }
+
+/* ===== アニメーション ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  animation: fadeIn 0.6s ease both;
+}
+
+.card:nth-child(2)  { animation-delay: 0.1s; }
+.card:nth-child(3)  { animation-delay: 0.2s; }
+.card:nth-child(4)  { animation-delay: 0.3s; }
+.card:nth-child(5)  { animation-delay: 0.4s; }
+
+/* ===== フィクスド予約バー ===== */
+.fixed-reserve {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 640px;
+  z-index: 200;
+  padding: 10px 16px 14px;
+  background: linear-gradient(to top, rgba(255,245,247,1) 60%, rgba(255,245,247,0));
+}
+
+.fixed-reserve a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--line-green);
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 14px 20px;
+  border-radius: var(--radius-btn);
+  box-shadow: 0 6px 24px rgba(6,199,85,0.40);
+  transition: all 0.3s;
+}
+
+.fixed-reserve a:hover {
+  background: var(--line-dark);
+  transform: translateY(-2px);
+}
+
+/* ===== レスポンシブ補正 ===== */
+@media (max-width: 400px) {
+  .card-inner { padding: 28px 18px; }
+  .features-grid { gap: 10px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 640px) {
+  .page-wrap { padding: 0 0 80px; }
+  .hero-slides { height: 400px; }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <img src="images/interior-latino-hair-salon.jpg" class="hero">
-  <h1>Sample Salon</h1>
-  <p>あなたの美しさを引き出します</p>
- <a href="reservation.html">
-  <button>ご予約はこちら</button>
-</a>
-</header>
 
-<div class="menu">
-  <div class="card">
-    <h3>カット</h3>
-    <p>¥4,000</p>
+<div class="page-wrap">
+
+  <!-- ===== ① HERO ===== -->
+  <div class="hero-wrap">
+    <div class="hero-slides">
+      <div class="hero-slide active">
+        <img src="imagesTem/Tem1.jpg" alt="Tem Nails サロン風景">
+      </div>
+      <div class="hero-slide">
+        <img src="imagesTem/Tem2.jpg" alt="Tem Nails ネイルデザイン">
+      </div>
+      <div class="hero-slide">
+        <img src="imagesTem/Tem21.jpg" alt="Tem Nails ネイルアート">
+      </div>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-dots">
+      <button class="dot active" onclick="goToSlide(0)" aria-label="スライド1"></button>
+      <button class="dot" onclick="goToSlide(1)" aria-label="スライド2"></button>
+      <button class="dot" onclick="goToSlide(2)" aria-label="スライド3"></button>
+    </div>
+
+    <div class="hero-text">
+      <span class="hero-logo">Tem Nails</span>
+      <span class="hero-logo-ja">テンネイル</span>
+      <span class="hero-catch">〜 忙しい毎日でも、可愛いネイルを 〜</span>
+      <a href="https://line.me/ti/p/DaNY7QC4sG" class="btn-line-hero" target="_blank" rel="noopener">
+        <i class="fab fa-line line-icon"></i>
+        【LINE予約】はこちら
+      </a>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>カラー</h3>
-    <p>¥6,000</p>
+  <!-- お知らせ -->
+  <div class="notice-ribbon">
+    <span class="notice-badge">お知らせ</span>
+    <p>お子様連れ大歓迎！施術前に料金を必ずご提示しています。初めての方もお気軽にご相談ください。</p>
   </div>
 
+  <!-- ===== ② 選ばれる理由 ===== -->
   <div class="card">
-    <h3>パーマ</h3>
-    <p>¥8,000</p>
-  </div>
-  <h2>店舗情報</h2>
+    <div class="card-inner">
+      <div class="section-heading">
+        <span class="jp-title">Tem Nailsが選ばれる理由</span>
+        <span class="en-title">Why Choose Us</span>
+      </div>
+      <div class="section-divider"><div class="section-divider-dot"></div></div>
 
-<div class="info">
-  <p>住所：東京都〇〇区〇〇1-2-3</p>
-  <p>営業時間：10:00〜20:00</p>
-  <p>定休日：火曜日</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon-wrap">⏱️</div>
+          <div class="feature-title">最短60分</div>
+          <div class="feature-desc">スピード施術で<br>お時間を大切に</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">👶</div>
+          <div class="feature-title">お子様連れOK</div>
+          <div class="feature-desc">ママさんにも<br>ご愛用いただいています</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">🖼️</div>
+          <div class="feature-title">持ち込みデザインOK</div>
+          <div class="feature-desc">画像持参で<br>理想のネイルに</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">💬</div>
+          <div class="feature-title">LINE相談OK</div>
+          <div class="feature-desc">来店前に<br>デザイン相談可能</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ③ ネイル見本（ギャラリー） ===== -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="section-heading">
+        <span class="jp-title">ネイル見本</span>
+        <span class="en-title">Gallery</span>
+      </div>
+      <div class="section-divider"><div class="section-divider-dot"></div></div>
+
+      <div class="gallery-grid">
+        <!-- 実際の画像 (6枚) -->
+        <div class="gallery-item" onclick="openLightbox('imagesTem/Tem11.jpg')">
+          <img src="imagesTem/Tem11.jpg" alt="ブラウンアーモンドネイル" loading="lazy">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('imagesTem/Tem4.jpg')">
+          <img src="imagesTem/Tem4.jpg" alt="フラワーアートネイル" loading="lazy">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('imagesTem/Tem13.jpg')">
+          <img src="imagesTem/Tem13.jpg" alt="ホワイトフラワーネイル" loading="lazy">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('imagesTem/Tem12.jpg')">
+          <img src="imagesTem/Tem12.jpg" alt="グリーン＋ブラックネイル" loading="lazy">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('imagesTem/Tem6.jpg')">
+          <img src="imagesTem/Tem6.jpg" alt="ブラウン＋ブルーネイル" loading="lazy">
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('imagesTem/Tem3.jpg')">
+          <img src="imagesTem/Tem3.jpg" alt="カラーチップ" loading="lazy">
+          <div class="gallery-overlay"></div>
+        </div>
+
+        <!-- 追加スロット (9枚分 placeholder) -->
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+        <div class="gallery-item gallery-placeholder">
+          <i class="fas fa-camera"></i>
+          <span>写真追加</span>
+        </div>
+      </div>
+
+      <p class="gallery-note">
+        最新デザインは
+        <a href="https://www.instagram.com/tem_nails_by_temma" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        でもご覧いただけます
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== ④ メニュー・料金 ===== -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="section-heading">
+        <span class="jp-title">メニュー・料金</span>
+        <span class="en-title">Menu &amp; Price</span>
+      </div>
+      <div class="section-divider"><div class="section-divider-dot"></div></div>
+
+      <span class="menu-tag">※ 施術前に必ず料金をご提示します</span>
+
+      <!-- 料金表画像スロット 1 -->
+      <div class="menu-img-slot" id="menu-img-1">
+        <i class="fas fa-image"></i>
+        <span class="slot-text">メニュー表の画像をここに追加</span>
+        <span class="slot-sub">（横4:縦3 推奨）</span>
+      </div>
+
+      <!-- 料金表画像スロット 2 -->
+      <div class="menu-img-slot" id="menu-img-2">
+        <i class="fas fa-image"></i>
+        <span class="slot-text">料金表の画像をここに追加</span>
+        <span class="slot-sub">（横4:縦3 推奨）</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== ⑤ スタッフ紹介 ===== -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="section-heading">
+        <span class="jp-title">スタッフ紹介</span>
+        <span class="en-title">Staff</span>
+      </div>
+      <div class="section-divider"><div class="section-divider-dot"></div></div>
+
+      <div class="staff-grid">
+        <div class="staff-item">
+          <img src="imagesTem/Tem25.jpg" alt="ネイリスト 天間ゆり" class="staff-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="staff-avatar-placeholder" style="display:none">💅</div>
+          <div class="staff-name">天間 ゆり</div>
+          <div class="staff-role">Nail Artist</div>
+          <p class="staff-comment">スピーディかつ丁寧な施術を心がけています。手元を見るたびに笑顔になれるネイルをご提案します。</p>
+        </div>
+
+        <div class="staff-item">
+          <img src="imagesTem/Tem26.jpg" alt="ネイリスト Narumi" class="staff-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="staff-avatar-placeholder" style="display:none">💅</div>
+          <div class="staff-name">Narumi</div>
+          <div class="staff-role">Nail Artist</div>
+          <p class="staff-comment">お客様にご満足いただけるよう、接客・技術向上を常に心がけています。お気軽にご相談ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ⑥ 予約・問い合わせ ===== -->
+  <div class="reserve-card" id="reserve">
+    <div class="reserve-title">ご予約・お問い合わせ</div>
+    <div class="reserve-sub">Reserve &amp; Contact</div>
+
+    <a href="https://line.me/ti/p/DaNY7QC4sG" class="btn-line-reserve" target="_blank" rel="noopener">
+      <i class="fab fa-line"></i>
+      LINEで今すぐ予約する
+    </a>
+
+    <div class="reserve-divider"><span>または</span></div>
+
+    <a href="tel:00000000000" class="btn-tel">
+      <i class="fas fa-phone"></i>
+      000-0000-0000
+    </a>
+    <p class="tel-note">タップするとそのまま電話できます</p>
+  </div>
+
+  <!-- ===== ⑦ アクセス ===== -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="section-heading">
+        <span class="jp-title">アクセス</span>
+        <span class="en-title">Access</span>
+      </div>
+      <div class="section-divider"><div class="section-divider-dot"></div></div>
+
+      <div class="access-address">
+        <strong>Tem Nails（テンネイル）</strong><br>
+        〒039-1165<br>
+        青森県八戸市石堂4丁目13-5 10号室<br>
+        <br>
+        営業時間：9:00 〜 20:00（不定休）
+      </div>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.551603517208!2d141.461525!3d40.5284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9b4f9906649779%3A0x6b6301389439c058!2z44CSMDM5LTExNjUg6Z2S5qOu55yM5YWr5oi45biC55-z5aCC77yU5LiB55uuMTMtNQ!5e0!3m2!1sja!2sjp!4v1715000000000!5m2!1sja!2sjp"
+          title="Tem Nails 地図"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- フィクスドLINEボタン -->
+<div class="fixed-reserve">
+  <a href="https://line.me/ti/p/DaNY7QC4sG" target="_blank" rel="noopener">
+    <i class="fab fa-line" style="font-size:20px"></i>
+    LINEでかんたん予約
+  </a>
 </div>
-</div>
+
+<!-- フッター -->
 <footer>
-  <p>© 2026 Sample Salon</p>
+  <div class="footer-logo">Tem Nails</div>
+  <div class="footer-logo-ja">テンネイル</div>
+  <div class="footer-info">
+    青森県八戸市石堂4丁目13-5 10号室<br>
+    営業時間 9:00〜20:00
+  </div>
+  <div class="footer-copy">© Tem Nails All Rights Reserved.</div>
 </footer>
+
+<!-- ライトボックス -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<script>
+// ===== ライトボックス =====
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ===== スライドショー =====
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.dot');
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+
+setInterval(() => goToSlide(currentSlide + 1), 4500);
+
+// ===== フィクスドバー：最下部に近いとき非表示 =====
+const fixedBar = document.querySelector('.fixed-reserve');
+window.addEventListener('scroll', () => {
+  const footer = document.querySelector('footer');
+  const footerTop = footer.getBoundingClientRect().top;
+  fixedBar.style.opacity = footerTop < window.innerHeight + 80 ? '0' : '1';
+  fixedBar.style.pointerEvents = footerTop < window.innerHeight + 80 ? 'none' : 'auto';
+});
+</script>
+
 </body>
 </html>
