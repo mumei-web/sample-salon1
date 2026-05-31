@@ -46,27 +46,18 @@ body {
 }
 
 /* ===================================
-   オープニングスクリーン（白背景透過の完全版）
+   オープニングスクリーン（背景馴染ませ完全版）
 =================================== */
 #loading-screen {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  /* 画像の白を消すモード（multiply）を完璧に発動させるために、ベースを一度純白にします */
-  background-color: #ffffff;
+  /* ★グラデーションを背景に直接敷き、ロゴの薄ピンク色をここに吸収させます */
+  background: linear-gradient(to bottom, var(--cream) 0%, #fff4f6 50%, var(--cream) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.8s ease;
-}
-
-/* ★グラデーションはロゴの白透過を邪魔しないよう、1枚後ろのレイヤーに配置します */
-#loading-screen::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, var(--cream) 0%, #fff4f6 50%, var(--cream) 100%);
-  z-index: -2;
 }
 
 #loading-screen.hide {
@@ -79,11 +70,15 @@ body {
   height: auto;
   object-fit: contain;
   
-  /* 💖 これで画像の「白い四角い背景」が100%消えてロゴの形に透明化されます！ */
-  mix-blend-mode: multiply;
+  /* 💖 画像の背景を後ろのグラデーションに美しく同化させます */
+  mix-blend-mode: color-burn;
+  contrast: 1.1;
+  brightness: 1.05;
   
-  /* ✨【追加】画像のほんのわずかな「一番外側のフチ（1〜2px）」を強制的に切り落とし、長方形の線を消します */
-  clip-path: inset(2px);
+  /* ✂️【超重要】外周の不要なフチ（長方形の線）を内側に3px隠して完全に消し去る魔法のプロパティ */
+  padding: 3px;
+  box-sizing: border-box;
+  clip-path: inset(3px);
   
   /* ロゴが中央で上品にじわっと現れるアニメーション */
   animation: logoElegantScale 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
@@ -99,11 +94,11 @@ body {
   width: min(320px, 80vw);
   height: min(320px, 80vw);
   border-radius: 50%;
-  border: 1px solid rgba(200, 86, 110, 0.20); /* ローズゴールドの細い線 */
-  box-shadow: 0 0 20px rgba(200, 86, 110, 0.12); /* 柔らかい光の余韻 */
+  border: 1px solid rgba(200, 86, 110, 0.25); /* ローズゴールドの細い線 */
+  box-shadow: 0 0 20px rgba(200, 86, 110, 0.15); /* 柔らかい光の余韻 */
   opacity: 0;
   animation: ringFadeIn 1.2s ease-out 0.4s both;
-  z-index: -1; /* ロゴの後ろ側、グラデーションの手前に配置 */
+  z-index: -1; /* ロゴの後ろ側に配置 */
 }
 
 /* アニメーションの動きのデータ */
