@@ -82,6 +82,9 @@ body {
   /* 💖 これで画像の「白い四角い背景」が100%消えてロゴの形に透明化されます！ */
   mix-blend-mode: multiply;
   
+  /* ✨【追加】画像のほんのわずかな「一番外側のフチ（1〜2px）」を強制的に切り落とし、長方形の線を消します */
+  clip-path: inset(2px);
+  
   /* ロゴが中央で上品にじわっと現れるアニメーション */
   animation: logoElegantScale 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
 }
