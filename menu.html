@@ -1,1 +1,599 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メニュー・料金 | 美鳳-bihou-</title>
+  <meta name="description" content="美鳳-bihou-のネイルメニューと料金一覧。施術前に必ず料金をご提示します。山梨県笛吹市の自宅ネイルサロン。">
 
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== メニューページ専用スタイル ===== */
+    .menu-page-hero {
+      height: 40vh;
+      min-height: 280px;
+      background: linear-gradient(160deg, var(--rose-dark) 0%, var(--rose) 60%, #d0708a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .menu-page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .menu-hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 8px;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+
+    .menu-hero-title {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 700;
+      font-size: clamp(32px, 8vw, 56px);
+      letter-spacing: 8px;
+      color: var(--white);
+      text-shadow: 0 4px 20px rgba(0,0,0,0.20);
+      position: relative; z-index: 1;
+      line-height: 1.1;
+    }
+
+    .menu-hero-roman {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      letter-spacing: 10px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 8px;
+      position: relative; z-index: 1;
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      background: var(--white);
+      padding: 14px 28px;
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      border-bottom: 1px solid #f0e0e4;
+    }
+    .breadcrumb a {
+      color: var(--rose);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ページ本体 */
+    .menu-page-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 24px 120px;
+    }
+
+    /* 注意書き */
+    .menu-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--rose-pale);
+      border-left: 4px solid var(--rose);
+      padding: 18px 22px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 56px;
+    }
+    .menu-notice i {
+      color: var(--rose);
+      font-size: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .menu-notice p {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    /* カテゴリブロック */
+    .menu-category {
+      margin-bottom: 64px;
+    }
+
+    .menu-cat-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--rose-light);
+    }
+
+    .menu-cat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--rose-light);
+      line-height: 1;
+    }
+
+    .menu-cat-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--rose-dark);
+      letter-spacing: 3px;
+    }
+
+    .menu-cat-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-light);
+      letter-spacing: 4px;
+      margin-left: auto;
+    }
+
+    /* 料金テーブル */
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .menu-table tr {
+      border-bottom: 1px solid #f0e0e4;
+      transition: background 0.2s;
+    }
+
+    .menu-table tr:last-child { border-bottom: none; }
+    .menu-table tr:hover { background: var(--rose-pale); }
+
+    .menu-table td {
+      padding: 18px 12px;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    .menu-table .item-name {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 500;
+      color: var(--rose-dark);
+      letter-spacing: 1px;
+      width: 55%;
+    }
+
+    .menu-table .item-name .item-note {
+      display: block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 3px;
+      letter-spacing: 0;
+    }
+
+    .menu-table .item-time {
+      color: var(--text-light);
+      font-size: 13px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .menu-table .item-price {
+      text-align: right;
+      white-space: nowrap;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--rose);
+      letter-spacing: 1px;
+    }
+
+    .menu-table .item-price small {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-light);
+      margin-left: 3px;
+    }
+
+    .menu-table .item-price .price-from {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: var(--text-light);
+      display: block;
+      text-align: right;
+    }
+
+    /* オプション用バッジ */
+    .badge-opt {
+      display: inline-block;
+      background: var(--rose-light);
+      color: var(--rose-dark);
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-left: 8px;
+      vertical-align: middle;
+      letter-spacing: 1px;
+    }
+
+    /* 画像スロット */
+    .menu-img-slot {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--rose-pale), #fde8ec);
+      border: 2px dashed var(--rose-light);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      color: var(--rose-light);
+      transition: border-color 0.3s;
+    }
+    .menu-img-slot:hover { border-color: var(--rose); }
+    .menu-img-slot i { font-size: 36px; }
+    .menu-img-slot .slot-main {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-mid);
+    }
+    .menu-img-slot .slot-sub {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* メニュー画像（実際の画像が入ったとき） */
+    .menu-img-real {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    /* 注意事項 */
+    .menu-notes {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 48px;
+    }
+
+    .menu-notes-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--rose-dark);
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .menu-notes-title i { color: var(--rose); }
+
+    .menu-notes ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .menu-notes ul li {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-left: 18px;
+      position: relative;
+    }
+    .menu-notes ul li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: var(--rose);
+    }
+
+    /* 予約CTA */
+    .menu-cta {
+      text-align: center;
+      padding: 56px 20px;
+      background: linear-gradient(135deg, var(--rose-dark), var(--rose));
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-cta::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .menu-cta-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+    }
+
+    .menu-cta-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.70);
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* 戻るボタン */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--rose);
+      text-decoration: none;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--rose-deep); }
+
+    @media (max-width: 640px) {
+      .menu-page-body { padding: 48px 16px 100px; }
+      .menu-cat-en { display: none; }
+      .menu-table .item-time { display: none; }
+      .menu-notes { padding: 22px 18px; }
+      .menu-cta { padding: 40px 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== ページヒーロー ===== -->
+<div class="menu-page-hero">
+  <p class="menu-hero-sub">Menu &amp; Price</p>
+  <h1 class="menu-hero-title">メニュー・料金</h1>
+  <p class="menu-hero-roman">bihou nail salon</p>
+</div>
+
+<!-- ===== パンくず ===== -->
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a>
+  <span>›</span>
+  メニュー・料金
+</div>
+
+<!-- ===== ページ本体 ===== -->
+<div class="menu-page-body">
+
+  <a href="index.html" class="back-link">
+    <i class="fas fa-arrow-left"></i> トップページへ戻る
+  </a>
+
+  <!-- 注意書き -->
+  <div class="menu-notice">
+    <i class="fas fa-info-circle"></i>
+    <p>
+      施術前には必ず料金をご提示いたします。はじめての方もどうぞご安心ください。<br>
+      料金はすべて税込み表記です。デザインによって料金が変わる場合がございます。
+    </p>
+  </div>
+
+  <!-- メニュー表画像スロット -->
+  <div class="menu-img-slot">
+    <i class="fas fa-image"></i>
+    <span class="slot-main">メニュー表の画像をここに追加</span>
+    <span class="slot-sub">（横4:縦3 推奨）</span>
+  </div>
+
+  <!-- ===== ジェルネイル ===== -->
+  <div class="menu-category">
+    <div class="menu-cat-header">
+      <span class="menu-cat-num">01</span>
+      <span class="menu-cat-title">ジェルネイル</span>
+      <span class="menu-cat-en">Gel Nail</span>
+    </div>
+    <table class="menu-table">
+      <tbody>
+        <tr>
+          <td class="item-name">
+            ワンカラー
+            <span class="item-note">単色カラーのシンプルネイル</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約60分</td>
+          <td class="item-price">
+            ¥0,000<small>〜</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            グラデーション
+            <span class="item-note">ふんわり美しいグラデーション</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約75分</td>
+          <td class="item-price">
+            ¥0,000<small>〜</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            フレンチ
+            <span class="item-note">上品なフレンチスタイル</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約75分</td>
+          <td class="item-price">
+            ¥0,000<small>〜</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            デザインコース
+            <span class="item-note">アート・ストーン・パーツ込み</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約90分〜</td>
+          <td class="item-price">
+            <span class="price-from">from</span>
+            ¥0,000<small>〜</small>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== オフ・ケア ===== -->
+  <div class="menu-category">
+    <div class="menu-cat-header">
+      <span class="menu-cat-num">02</span>
+      <span class="menu-cat-title">オフ・ケア</span>
+      <span class="menu-cat-en">Off &amp; Care</span>
+    </div>
+    <table class="menu-table">
+      <tbody>
+        <tr>
+          <td class="item-name">
+            ジェルオフ（当店施術分）
+            <span class="item-note">美鳳での施術の場合</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約20分</td>
+          <td class="item-price">無料</td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            ジェルオフ（他店施術分）
+            <span class="item-note">他サロンでの施術の場合</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約30分</td>
+          <td class="item-price">¥0,000<small>〜</small></td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            ネイルケア<span class="badge-opt">オプション</span>
+            <span class="item-note">甘皮ケア・保湿</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約15分</td>
+          <td class="item-price">¥0,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== オプション ===== -->
+  <div class="menu-category">
+    <div class="menu-cat-header">
+      <span class="menu-cat-num">03</span>
+      <span class="menu-cat-title">オプション</span>
+      <span class="menu-cat-en">Option</span>
+    </div>
+    <table class="menu-table">
+      <tbody>
+        <tr>
+          <td class="item-name">
+            パーツ（1本）
+            <span class="item-note">ストーン・シェル・箔など</span>
+          </td>
+          <td class="item-time">—</td>
+          <td class="item-price">¥000<small>/本〜</small></td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            フラワーアート（1本）
+            <span class="item-note">繊細なフラワーアート</span>
+          </td>
+          <td class="item-time">—</td>
+          <td class="item-price">¥000<small>/本〜</small></td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            長さだし（1本）
+            <span class="item-note">スカルプ・チップ</span>
+          </td>
+          <td class="item-time">—</td>
+          <td class="item-price">¥000<small>/本〜</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 料金表画像スロット -->
+  <div class="menu-img-slot">
+    <i class="fas fa-image"></i>
+    <span class="slot-main">料金表の画像をここに追加</span>
+    <span class="slot-sub">（横4:縦3 推奨）</span>
+  </div>
+
+  <!-- 注意事項 -->
+  <div class="menu-notes">
+    <p class="menu-notes-title"><i class="fas fa-exclamation-circle"></i> ご利用の前にご確認ください</p>
+    <ul>
+      <li>料金はすべて税込みです。デザインの複雑さにより変動する場合があります。</li>
+      <li>施術前に必ず料金をご提示しますので、ご不明な点はお気軽にご相談ください。</li>
+      <li>持ち込みデザイン（写真・イメージ）は大歓迎です。LINEで事前にご相談いただけます。</li>
+      <li>アレルギーや爪のトラブルがある方は事前にお知らせください。</li>
+      <li>ご予約の変更・キャンセルはなるべくお早めにご連絡ください。</li>
+      <li>駐車場は自宅前にご用意しています。お車でお気軽にご来店ください。</li>
+    </ul>
+  </div>
+
+  <!-- 予約CTA -->
+  <div class="menu-cta">
+    <p class="menu-cta-title">ご予約・お問い合わせ</p>
+    <p class="menu-cta-sub">LINEでかんたんにご予約いただけます</p>
+    <a href="https://lin.ee/5WvFPQp" class="btn-line-reserve" target="_blank" rel="noopener">
+      <i class="fab fa-line"></i>LINEで今すぐ予約する
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== 固定予約バー ===== -->
+<div class="fixed-bar">
+  <a href="https://lin.ee/5WvFPQp" target="_blank" rel="noopener">
+    <i class="fab fa-line"></i>LINEでかんたん予約
+  </a>
+</div>
+
+</body>
+</html>
