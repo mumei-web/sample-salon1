@@ -125,6 +125,32 @@ section {
   height: 100%;
   object-fit: cover;
 }
+/* （前略） */
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ★★★ ここに新しく追加します ★★★ */
+.hero-slide:first-child img {
+  object-fit: contain;      /* 画像全体を枠内に収める */
+  background-color: #ffffff; /* 画像の周りにできる隙間の背景色 */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+/* （後略） */
 
 .hero-overlay {
   position: absolute;
