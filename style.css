@@ -46,18 +46,27 @@ body {
 }
 
 /* ===================================
-   オープニングスクリーン（グラデーション＆マスク加工）
+   オープニングスクリーン（白背景透過の完全版）
 =================================== */
 #loading-screen {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  /* 単色ではなく、サロンのテーマに合わせた高級感のある上品な縦グラデーションに変更 */
-  background: linear-gradient(to bottom, var(--cream) 0%, #fff4f6 50%, var(--cream) 100%);
+  /* 画像の白を消すモード（multiply）を完璧に発動させるために、ベースを一度純白にします */
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.8s ease;
+}
+
+/* ★グラデーションはロゴの白透過を邪魔しないよう、1枚後ろのレイヤーに配置します */
+#loading-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--cream) 0%, #fff4f6 50%, var(--cream) 100%);
+  z-index: -2;
 }
 
 #loading-screen.hide {
@@ -70,14 +79,14 @@ body {
   height: auto;
   object-fit: contain;
   
-  /* ★魔法の1行：画像の「白い背景」だけを完全に透明化して、ロゴの形にくり抜きます */
+  /* 💖 これで画像の「白い四角い背景」が100%消えてロゴの形に透明化されます！ */
   mix-blend-mode: multiply;
   
-  /* ロゴが中央で少し大きくなりながら、上品にじわっと現れるアニメーション */
+  /* ロゴが中央で上品にじわっと現れるアニメーション */
   animation: logoElegantScale 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
 }
 
-/* ★追加：ロゴの周りにゴールドの繊細な光の輪を重ねる演出 */
+/* ★ロゴの周りに重ねるローズゴールドの繊細な光の輪 */
 #loading-screen::after {
   content: '';
   position: absolute;
@@ -87,14 +96,14 @@ body {
   width: min(320px, 80vw);
   height: min(320px, 80vw);
   border-radius: 50%;
-  border: 1px solid rgba(200, 86, 110, 0.25); /* ローズゴールドの細い線 */
-  box-shadow: 0 0 20px rgba(200, 86, 110, 0.15); /* 柔らかい光の余韻 */
+  border: 1px solid rgba(200, 86, 110, 0.20); /* ローズゴールドの細い線 */
+  box-shadow: 0 0 20px rgba(200, 86, 110, 0.12); /* 柔らかい光の余韻 */
   opacity: 0;
   animation: ringFadeIn 1.2s ease-out 0.4s both;
-  z-index: -1; /* ロゴの後ろ側に配置 */
+  z-index: -1; /* ロゴの後ろ側、グラデーションの手前に配置 */
 }
 
-/* 新しい洗練されたアニメーションの動きのデータ */
+/* アニメーションの動きのデータ */
 @keyframes logoElegantScale {
   from {
     opacity: 0;
@@ -110,22 +119,6 @@ body {
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes openingFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes logoFloat {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
 
