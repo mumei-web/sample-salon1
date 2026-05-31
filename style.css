@@ -120,37 +120,18 @@ section {
 }
 .hero-slide.active { opacity: 1; }
 
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* （前略） */
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.4s ease;
-}
-.hero-slide.active { opacity: 1; }
-
+/* 2枚目以降の通常のスライド画像（画面いっぱいに広げる） */
 .hero-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* ★★★ ここに新しく追加します ★★★ */
+/* 1枚目のロゴ画像だけを見切れないように個別に調整 */
 .hero-slide:first-child img {
-  object-fit: contain;      /* 画像全体を枠内に収める */
-  background-color: #ffffff; /* 画像の周りにできる隙間の背景色 */
+  object-fit: contain;
+  background-color: #ffffff; /* 画像の周りの隙間を埋める背景色（白） */
 }
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-/* （後略） */
 
 .hero-overlay {
   position: absolute;
@@ -265,10 +246,6 @@ section {
   border-radius: 4px;
   background: var(--white);
 }
-
-/* ===================================
-   NAV
-=================================== */
 nav#main-nav {
   display: flex;
   justify-content: center;
