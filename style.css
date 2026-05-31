@@ -46,19 +46,17 @@ body {
 }
 
 /* ===================================
-   オープニングスクリーン
+   オープニングスクリーン（グラデーション＆マスク加工）
 =================================== */
 #loading-screen {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--cream);
+  /* 単色ではなく、サロンのテーマに合わせた高級感のある上品な縦グラデーションに変更 */
+  background: linear-gradient(to bottom, var(--cream) 0%, #fff4f6 50%, var(--cream) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  /* フェードイン：ロゴが浮き出る */
-  animation: openingFadeIn 0.8s ease both;
-  /* フェードアウトは .hide クラスで制御 */
   transition: opacity 0.8s ease;
 }
 
@@ -71,8 +69,48 @@ body {
   width: min(280px, 70vw);
   height: auto;
   object-fit: contain;
-  /* ロゴ自体も下からふわっと浮き出る */
-  animation: logoFloat 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s both;
+  
+  /* ★魔法の1行：画像の「白い背景」だけを完全に透明化して、ロゴの形にくり抜きます */
+  mix-blend-mode: multiply;
+  
+  /* ロゴが中央で少し大きくなりながら、上品にじわっと現れるアニメーション */
+  animation: logoElegantScale 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
+}
+
+/* ★追加：ロゴの周りにゴールドの繊細な光の輪を重ねる演出 */
+#loading-screen::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  width: min(320px, 80vw);
+  height: min(320px, 80vw);
+  border-radius: 50%;
+  border: 1px solid rgba(200, 86, 110, 0.25); /* ローズゴールドの細い線 */
+  box-shadow: 0 0 20px rgba(200, 86, 110, 0.15); /* 柔らかい光の余韻 */
+  opacity: 0;
+  animation: ringFadeIn 1.2s ease-out 0.4s both;
+  z-index: -1; /* ロゴの後ろ側に配置 */
+}
+
+/* 新しい洗練されたアニメーションの動きのデータ */
+@keyframes logoElegantScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes ringFadeIn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 @keyframes openingFadeIn {
