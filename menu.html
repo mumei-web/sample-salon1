@@ -151,6 +151,7 @@
       font-weight: 600;
       color: var(--rose-dark);
       letter-spacing: 3px;
+      margin: 0;
     }
 
     .menu-cat-en {
@@ -249,44 +250,6 @@
       letter-spacing: 1px;
     }
 
-    /* 画像スロット */
-    .menu-img-slot {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: linear-gradient(135deg, var(--rose-pale), #fde8ec);
-      border: 2px dashed var(--rose-light);
-      border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 40px;
-      color: var(--rose-light);
-      transition: border-color 0.3s;
-    }
-    .menu-img-slot:hover { border-color: var(--rose); }
-    .menu-img-slot i { font-size: 36px; }
-    .menu-img-slot .slot-main {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-mid);
-    }
-    .menu-img-slot .slot-sub {
-      font-size: 12px;
-      color: var(--text-light);
-    }
-
-    /* メニュー画像（実際の画像が入ったとき） */
-    .menu-img-real {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin-bottom: 40px;
-      display: block;
-    }
-
     /* 注意事項 */
     .menu-notes {
       background: var(--white);
@@ -314,6 +277,8 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      padding: 0;
+      margin: 0;
     }
     .menu-notes ul li {
       font-size: 13px;
@@ -392,28 +357,24 @@
 
 <body>
 
-<!-- ===== ページヒーロー ===== -->
-<div class="menu-page-hero">
+<header class="menu-page-hero">
   <p class="menu-hero-sub">Menu &amp; Price</p>
   <h1 class="menu-hero-title">メニュー・料金</h1>
   <p class="menu-hero-roman">bihou nail salon</p>
-</div>
+</header>
 
-<!-- ===== パンくず ===== -->
-<div class="breadcrumb">
+<nav class="breadcrumb" aria-label="パンくずリスト">
   <a href="index.html">ホーム</a>
   <span>›</span>
   メニュー・料金
-</div>
+</nav>
 
-<!-- ===== ページ本体 ===== -->
-<div class="menu-page-body">
+<main class="menu-page-body">
 
   <a href="index.html" class="back-link">
     <i class="fas fa-arrow-left"></i> トップページへ戻る
   </a>
 
-  <!-- 注意書き -->
   <div class="menu-notice">
     <i class="fas fa-info-circle"></i>
     <p>
@@ -422,176 +383,273 @@
     </p>
   </div>
 
-  <!-- メニュー表画像スロット -->
-  <div class="menu-img-slot">
-    <i class="fas fa-image"></i>
-    <span class="slot-main">メニュー表の画像をここに追加</span>
-    <span class="slot-sub">（横4:縦3 推奨）</span>
-  </div>
-
-  <!-- ===== ジェルネイル ===== -->
-  <div class="menu-category">
+  <section class="menu-category">
     <div class="menu-cat-header">
       <span class="menu-cat-num">01</span>
-      <span class="menu-cat-title">ジェルネイル</span>
+      <h2 class="menu-cat-title">ジェルメニュー</h2>
       <span class="menu-cat-en">Gel Nail</span>
     </div>
     <table class="menu-table">
       <tbody>
         <tr>
           <td class="item-name">
-            ワンカラー
-            <span class="item-note">単色カラーのシンプルネイル</span>
+            ワンカラー・グラデーション
+            <span class="item-note">アートなしのシンプル仕上げ<br>※アート追加 可能※
+</span>
           </td>
-          <td class="item-time"><i class="far fa-clock"></i> 約60分</td>
+          <td class="item-time"><i class="far fa-clock"></i> 約90分</td>
           <td class="item-price">
-            ¥0,000<small>〜</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="item-name">
-            グラデーション
-            <span class="item-note">ふんわり美しいグラデーション</span>
-          </td>
-          <td class="item-time"><i class="far fa-clock"></i> 約75分</td>
-          <td class="item-price">
-            ¥0,000<small>〜</small>
+            ¥6,600<small>〜</small>
           </td>
         </tr>
         <tr>
           <td class="item-name">
             フレンチ
-            <span class="item-note">上品なフレンチスタイル</span>
+            <span class="item-note">ベースカラー＋フレンチ
+<br>ラメライン追加無料！</span>
           </td>
-          <td class="item-time"><i class="far fa-clock"></i> 約75分</td>
+          <td class="item-time"><i class="far fa-clock"></i> 約120分</td>
           <td class="item-price">
-            ¥0,000<small>〜</small>
+            ¥7,700<small>〜</small>
           </td>
         </tr>
         <tr>
           <td class="item-name">
-            デザインコース
-            <span class="item-note">アート・ストーン・パーツ込み</span>
+            ガラスフレンチ
+            <span class="item-note">カラーグラデーション<br>
+カラーフレンチ<br>
+ホログラム<br>
+
+Mix ガラスフレンチ</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約0分</td>
+          <td class="item-price">
+            ¥8,250<small>〜</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            ハンド フルアート
+            <span class="item-note">10本 フルアート<br>持ち込みデザイン対応可能</span>
           </td>
           <td class="item-time"><i class="far fa-clock"></i> 約90分〜</td>
           <td class="item-price">
             <span class="price-from">from</span>
-            ¥0,000<small>〜</small>
+            ¥11,000<small>〜</small>
           </td>
         </tr>
+        <td class="item-name">
+            フット ワンカラー
+            <span class="item-note">アートなしワンカラー施術
+<br>爪の長さを調整<br>爪裏の角質除去<br>甘皮ケア</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約120分</td>
+          <td class="item-price">
+            ¥7,700<small>〜</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            フット 親指デザイン
+            <span class="item-note">両親指 アート付き</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約120分</td>
+          <td class="item-price">
+            ¥8,250<small>〜</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            フット フルアート
+            <span class="item-note">持ち込みデザイン
+<br>お好きなアート可能</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約120分</td>
+          <td class="item-price">
+            ¥9,350<small>〜</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            B/S ブレイス 巻き爪ケアコース
+            <span class="item-note">大人気の巻き爪ケアコース</span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約120分</td>
+          <td class="item-price">
+            ¥4,950<small>〜</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            リピーター様 限定
+            <span class="item-note"></span>
+          </td>
+          <td class="item-time"><i class="far fa-clock"></i> 約60分</td>
+          <td class="item-price">
+            ¥5,500<small>〜</small>
+          </td>
+        </tr>
+        <tr>
       </tbody>
     </table>
-  </div>
+  </section>
 
-  <!-- ===== オフ・ケア ===== -->
-  <div class="menu-category">
+  <section class="menu-category">
     <div class="menu-cat-header">
       <span class="menu-cat-num">02</span>
-      <span class="menu-cat-title">オフ・ケア</span>
-      <span class="menu-cat-en">Off &amp; Care</span>
+      <h2 class="menu-cat-title">ジェルオフ</h2>
+      <span class="menu-cat-en">Off</span>
     </div>
     <table class="menu-table">
       <tbody>
         <tr>
           <td class="item-name">
-            ジェルオフ（当店施術分）
-            <span class="item-note">美鳳での施術の場合</span>
+            ジェルオフ（当店施術）
+            <span class="item-note">当店施術のジェルをオフして<br>自爪に戻す場合</span>
           </td>
-          <td class="item-time"><i class="far fa-clock"></i> 約20分</td>
-          <td class="item-price">無料</td>
+          <td class="item-time"><i class="far fa-clock"></i> 約60分</td>
+          <td class="item-price">¥2,200</td>
         </tr>
         <tr>
           <td class="item-name">
-            ジェルオフ（他店施術分）
-            <span class="item-note">他サロンでの施術の場合</span>
+            ジェルオフ（他店様施術）
+            <span class="item-note">他店様施術のジェルをオフして<br>
+当店でジェル施術させていただく場合</span>
           </td>
-          <td class="item-time"><i class="far fa-clock"></i> 約30分</td>
-          <td class="item-price">¥0,000<small>〜</small></td>
+          <td class="item-time"><i class="far fa-clock"></i> 約60分</td>
+          <td class="item-price">¥2,200</td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="menu-category">
+    <div class="menu-cat-header">
+      <span class="menu-cat-num">03</span>
+      <h2 class="menu-cat-title">自爪補強</h2>
+      <span class="menu-cat-en"></span>
+    </div>
+    <table class="menu-table">
+      <tbody>
+        <tr>
+          <td class="item-name">
+            クリアジェル
+            <span class="item-note">甘皮除去＋クリアジェル仕上げ</span>
+          </td>
+          <td class="item-time">—</td>
+          <td class="item-price">¥4,950</td>
         </tr>
         <tr>
           <td class="item-name">
-            ネイルケア<span class="badge-opt">オプション</span>
-            <span class="item-note">甘皮ケア・保湿</span>
+            長さだし（1本）
+            <span class="item-note">ジェルによる長さだし</span>
           </td>
-          <td class="item-time"><i class="far fa-clock"></i> 約15分</td>
-          <td class="item-price">¥0,000</td>
+          <td class="item-time">—</td>
+          <td class="item-price">¥770<small>/本〜</small></td>
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <!-- ===== オプション ===== -->
-  <div class="menu-category">
+  </section>
+  <section class="menu-category">
     <div class="menu-cat-header">
-      <span class="menu-cat-num">03</span>
-      <span class="menu-cat-title">オプション</span>
+      <span class="menu-cat-num">04</span>
+      <h2 class="menu-cat-title">ネイルケア</h2>
+      <span class="menu-cat-en">Nailcare</span>
+    </div>
+    <table class="menu-table">
+      <tbody>
+        <tr>
+          <td class="item-name">
+            ファイリング
+            <span class="item-note">爪の長さをヤスリで削り<br>形を整えます</span>
+          </td>
+          <td class="item-time">約30分</td>
+          <td class="item-price">¥1,100</td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            ハンドケアコース
+            <span class="item-note">自爪の長さ調整<br>甘皮ケア<br>保湿トリートメント</span>
+          </td>
+          <td class="item-time">約60分</td>
+          <td class="item-price">¥3,300</td>
+        </tr>
+        <tr>
+          <td class="item-name">
+            フット スペシャルケアコース
+            <span class="item-note">足裏の角質を滑らかに整える<br>トリートメント保湿</span>
+          </td>
+          <td class="item-time">約60</td>
+          <td class="item-price">¥4,400<small>/本〜</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="menu-category">
+    <div class="menu-cat-header">
+      <span class="menu-cat-num">05</span>
+      <h2 class="menu-cat-title">オプション</h2>
       <span class="menu-cat-en">Option</span>
     </div>
     <table class="menu-table">
       <tbody>
         <tr>
           <td class="item-name">
-            パーツ（1本）
-            <span class="item-note">ストーン・シェル・箔など</span>
+            アート追加
+            <span class="item-note">ストーン ￥50/1粒
+<br>(全てスワロフスキー使用)
+<br>スタッズ ￥10/1粒
+<br>人気！おすすめデザインセット ￥220～
+<br>※ 通常よりお得な ビジューセット
+<br>手書きアート ￥220～/1本
+<br>シール ￥50～/1本
+<br>ミラー・ユニコーン ￥50/1本
+<br>マットコート ￥50/1本
+
+ホログラム・金箔 ￥50/1本</span>
           </td>
           <td class="item-time">—</td>
-          <td class="item-price">¥000<small>/本〜</small></td>
+          <td class="item-price">¥10/td>
         </tr>
         <tr>
           <td class="item-name">
-            フラワーアート（1本）
-            <span class="item-note">繊細なフラワーアート</span>
+            亀裂補修 (リペア)
+            <span class="item-note">ジェル施術のときに<br>グルーで補修</span>
           </td>
           <td class="item-time">—</td>
-          <td class="item-price">¥000<small>/本〜</small></td>
+          <td class="item-price">¥0</small></td>
         </tr>
         <tr>
-          <td class="item-name">
-            長さだし（1本）
-            <span class="item-note">スカルプ・チップ</span>
-          </td>
-          <td class="item-time">—</td>
-          <td class="item-price">¥000<small>/本〜</small></td>
-        </tr>
       </tbody>
     </table>
-  </div>
+  </section>
 
-  <!-- 料金表画像スロット -->
-  <div class="menu-img-slot">
-    <i class="fas fa-image"></i>
-    <span class="slot-main">料金表の画像をここに追加</span>
-    <span class="slot-sub">（横4:縦3 推奨）</span>
-  </div>
-
-  <!-- 注意事項 -->
-  <div class="menu-notes">
+  <section class="menu-notes">
     <p class="menu-notes-title"><i class="fas fa-exclamation-circle"></i> ご利用の前にご確認ください</p>
     <ul>
       <li>料金はすべて税込みです。デザインの複雑さにより変動する場合があります。</li>
       <li>施術前に必ず料金をご提示しますので、ご不明な点はお気軽にご相談ください。</li>
       <li>持ち込みデザイン（写真・イメージ）は大歓迎です。LINEで事前にご相談いただけます。</li>
-      <li>アレルギーや爪のトラブルがある方は事前にお知らせください。</li>
+      <li>アレルギーや爪のトラブル（グリーンネイル等）がある方は事前にお知らせください。</li>
       <li>ご予約の変更・キャンセルはなるべくお早めにご連絡ください。</li>
       <li>駐車場は自宅前にご用意しています。お車でお気軽にご来店ください。</li>
     </ul>
-  </div>
+  </section>
 
-  <!-- 予約CTA -->
   <div class="menu-cta">
     <p class="menu-cta-title">ご予約・お問い合わせ</p>
     <p class="menu-cta-sub">LINEでかんたんにご予約いただけます</p>
     <a href="https://lin.ee/5WvFPQp" class="btn-line-reserve" target="_blank" rel="noopener">
-      <i class="fab fa-line"></i>LINEで今すぐ予約する
+      <i class="fab fa-line"></i> LINEで今すぐ予約する
     </a>
   </div>
 
-</div>
+</main>
 
-<!-- ===== 固定予約バー ===== -->
 <div class="fixed-bar">
   <a href="https://lin.ee/5WvFPQp" target="_blank" rel="noopener">
-    <i class="fab fa-line"></i>LINEでかんたん予約
+    <i class="fab fa-line"></i> LINEでかんたん予約
   </a>
 </div>
 
