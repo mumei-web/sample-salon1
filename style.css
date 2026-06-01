@@ -46,14 +46,14 @@ body {
 }
 
 /* ===================================
-   オープニングスクリーン（背景馴染ませ完全版）
+   オープニングスクリーン（ロゴ鮮やか完全版）
 =================================== */
 #loading-screen {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  /* ★グラデーションを背景に直接敷き、ロゴの薄ピンク色をここに吸収させます */
-  background: linear-gradient(to bottom, var(--cream) 0%, #fff4f6 50%, var(--cream) 100%);
+  /* ✨ ロゴの鮮やかな色を100%生かすため、ベース背景を純白にします */
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,18 +70,17 @@ body {
   height: auto;
   object-fit: contain;
   
-  /* 💖 画像の背景を後ろのグラデーションに美しく同化させます */
-  mix-blend-mode: color-burn;
-  contrast: 1.1;
-  brightness: 1.05;
+  /* 💖 元のロゴのボルドーとピンク色を100%そのまま、鮮やかにくっきり表示します */
+  mix-blend-mode: multiply;
+  filter: none;
   
-  /* ✂️【超重要】外周の不要なフチ（長方形の線）を内側に3px隠して完全に消し去る魔法のプロパティ */
-  padding: 3px;
+  /* ✂️ 画像の外周の不要な線を、ロゴを小さくせずに物理的にシャットアウトします */
+  padding: 4px;
   box-sizing: border-box;
-  clip-path: inset(3px);
+  clip-path: inset(4px);
   
-  /* ロゴが中央で上品にじわっと現れるアニメーション */
-  animation: logoElegantScale 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
+  /* ⏳【時間調整】上品に見えるよう、アニメーションの余韻をほんの少し長めに設定 */
+  animation: logoElegantScale 1.6s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
 }
 
 /* ★ロゴの周りに重ねるローズゴールドの繊細な光の輪 */
@@ -97,7 +96,7 @@ body {
   border: 1px solid rgba(200, 86, 110, 0.25); /* ローズゴールドの細い線 */
   box-shadow: 0 0 20px rgba(200, 86, 110, 0.15); /* 柔らかい光の余韻 */
   opacity: 0;
-  animation: ringFadeIn 1.2s ease-out 0.4s both;
+  animation: ringFadeIn 1.4s ease-out 0.4s both;
   z-index: -1; /* ロゴの後ろ側に配置 */
 }
 
