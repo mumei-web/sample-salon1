@@ -1,1 +1,248 @@
+/* style.css */
 
+:root {
+  --blue: #3B6978;
+  --blue-deep: #204051;
+  --blue-pale: #DDE7EA;
+  --bg: #F9F8F6;
+  --bg-warm: #F2EED9;
+  --text: #2E3A3F;
+  --text-soft: #5E6B70;
+  --line: #D9D3BC;
+  --accent: #C98B5E; /* 手書きメモ・差し色（くすんだ茶オレンジ） */
+  --radius: 6px;
+  --font-body: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  --font-serif: "Noto Serif JP", "Yu Mincho", serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+ul { list-style: none; }
+[hidden] { display: none !important; }
+strong { background: linear-gradient(transparent 62%, #EBDD9C 62%); font-weight: 700; }
+.small { font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+
+/* ---------- 共通パーツ ---------- */
+h1, h2, h3 { font-family: var(--font-serif); color: var(--blue-deep); line-height: 1.5; font-weight: 700; }
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: .18em;
+  color: var(--blue);
+  margin-bottom: 8px;
+  text-transform: lowercase;
+}
+.section-head { text-align: center; margin-bottom: 48px; }
+.section-head.left { text-align: left; }
+.section-head h2 { font-size: clamp(24px, 3.6vw, 32px); }
+.section-note { margin-top: 14px; color: var(--text-soft); font-size: 15px; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  text-align: center;
+  transition: transform .2s, background .2s, color .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--blue); color: #fff; border: 2px solid var(--blue); }
+.btn-primary:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+.btn-outline { border: 2px solid var(--blue); color: var(--blue); background: transparent; padding: 10px 22px; font-size: 14px; }
+.btn-outline:hover { background: var(--blue); color: #fff; }
+.btn-wide { display: block; margin-top: 22px; }
+
+/* 写真：画像がまだ無いときも、やさしい色の枠に店名が出る */
+.photo {
+  position: relative;
+  background: var(--blue-pale);
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.photo::before {
+  content: attr(data-label);
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif);
+  color: var(--blue);
+  opacity: .55;
+  font-size: 15px;
+  letter-spacing: .1em;
+}
+.photo img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- ヘッダー ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 5vw;
+  background: rgba(249, 248, 246, .96);
+  border-bottom: 1px solid var(--line);
+}
+.logo { text-decoration: none; font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--blue-deep); }
+.logo small { font-family: var(--font-body); font-size: 11px; letter-spacing: .15em; margin-left: 8px; color: var(--text-soft); font-weight: 400; }
+.gnav { display: flex; gap: 26px; }
+.gnav a { text-decoration: none; font-size: 14px; font-weight: 500; padding: 4px 0; border-bottom: 2px solid transparent; }
+.gnav a:hover { border-bottom-color: var(--blue); }
+
+/* ---------- ヒーロー ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 4vw;
+  align-items: center;
+  padding: 70px 6vw 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-sub { font-size: 13px; color: var(--text-soft); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(28px, 4.6vw, 46px); margin-bottom: 24px; }
+.hero-lead { margin-bottom: 34px; color: var(--text-soft); }
+
+.hero-photos { position: relative; height: 460px; }
+.photo-a { position: absolute; top: 0; right: 0; width: 72%; height: 330px; transform: rotate(1.5deg); box-shadow: 0 6px 18px rgba(32, 64, 81, .12); }
+.photo-b { position: absolute; bottom: 0; left: 0; width: 52%; height: 220px; transform: rotate(-2.5deg); border: 6px solid #fff; box-shadow: 0 6px 18px rgba(32, 64, 81, .14); }
+.hand-note {
+  position: absolute; bottom: 10px; right: 6%;
+  font-family: var(--font-serif);
+  color: var(--accent);
+  font-size: 17px; line-height: 1.6;
+  transform: rotate(-4deg);
+}
+
+/* ---------- about ---------- */
+.about {
+  background: var(--bg-warm);
+  padding: 84px 6vw;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 5vw;
+  max-width: none;
+}
+.about > * { max-width: 560px; }
+.about .section-head { justify-self: end; margin-bottom: 0; }
+.about-body p { margin-bottom: 18px; }
+.about-points { margin-top: 28px; border-top: 1px dashed var(--line); }
+.about-points li { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px dashed var(--line); font-size: 15px; }
+.about-points span {
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--blue); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; margin-top: 2px;
+}
+
+/* ---------- 店舗一覧（雑誌風にずらす） ---------- */
+.stores { padding: 96px 5vw 90px; max-width: 1180px; margin: 0 auto; }
+.store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 34px 28px; align-items: start; }
+.store-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 12px 12px 22px;
+  box-shadow: 0 3px 12px rgba(32, 64, 81, .09);
+  transition: transform .25s, box-shadow .25s;
+}
+.store-card:nth-child(4n+1) { transform: rotate(-.8deg); }
+.store-card:nth-child(4n+2) { margin-top: 28px; transform: rotate(.6deg); }
+.store-card:nth-child(4n+3) { margin-top: 8px; transform: rotate(-.4deg); }
+.store-card:nth-child(4n)   { margin-top: 36px; transform: rotate(.9deg); }
+.store-card:hover { transform: rotate(0) translateY(-4px); box-shadow: 0 10px 24px rgba(32, 64, 81, .16); }
+.store-card .photo { height: 170px; }
+.store-card-body { padding: 16px 8px 0; }
+.store-card h3 { font-size: 21px; margin-bottom: 6px; }
+.store-card p { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 18px; min-height: 3.6em; }
+
+/* ---------- 店舗詳細 ---------- */
+.detail { max-width: 1060px; margin: 0 auto; padding: 44px 5vw 100px; }
+.back { display: inline-block; margin-bottom: 30px; font-size: 14px; color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); }
+.detail-head { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; margin-bottom: 56px; }
+.detail-head h2 { font-size: clamp(32px, 5vw, 44px); margin-bottom: 14px; }
+.detail-appeal { color: var(--text-soft); }
+.detail-head .photo { height: 280px; transform: rotate(1deg); box-shadow: 0 6px 18px rgba(32, 64, 81, .14); }
+
+.detail-cols { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: start; }
+.detail h3 { font-size: 20px; margin-bottom: 18px; padding-left: 12px; border-left: 4px solid var(--blue); }
+.price-box, .info-box { background: #fff; padding: 30px 28px; border-radius: var(--radius); box-shadow: 0 3px 12px rgba(32, 64, 81, .08); }
+.info-box { background: var(--bg-warm); margin-top: 24px; box-shadow: none; }
+
+.price-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+.price-table th, .price-table td { padding: 14px 6px; border-bottom: 1px dashed var(--line); text-align: left; vertical-align: middle; }
+.price-table th { font-weight: 500; font-size: 15px; }
+.price-table th small { display: block; font-size: 12px; color: var(--text-soft); font-weight: 400; }
+.price-table td { text-align: right; font-family: var(--font-serif); font-size: 19px; font-weight: 700; color: var(--blue-deep); white-space: nowrap; }
+.price-table .tax { font-family: var(--font-body); font-size: 11px; color: var(--text-soft); font-weight: 400; margin-left: 2px; }
+.price-table tr:last-child th, .price-table tr:last-child td { border-bottom: none; }
+
+.info-box dl { display: grid; grid-template-columns: 5.5em 1fr; gap: 10px 10px; font-size: 14px; }
+.info-box dt { font-weight: 700; color: var(--blue); }
+.staff-comment { margin-top: 20px; padding: 12px 14px; background: #fff; border-radius: var(--radius); font-size: 14px; position: relative; }
+
+.other-stores { margin-top: 64px; padding-top: 26px; border-top: 1px dashed var(--line); text-align: center; }
+.other-stores p { font-size: 14px; color: var(--text-soft); margin-bottom: 12px; }
+.other-stores div { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.other-stores a { text-decoration: none; font-size: 14px; padding: 6px 16px; border: 1px solid var(--blue); border-radius: 30px; color: var(--blue); }
+.other-stores a:hover { background: var(--blue); color: #fff; }
+
+/* ---------- 採用 ---------- */
+.recruit { background: var(--blue-deep); color: #F4F1E6; padding: 90px 6vw; }
+.recruit-inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+.recruit h2 { color: #fff; font-size: clamp(24px, 3.6vw, 32px); margin-bottom: 22px; }
+.recruit .eyebrow { color: #A9C4CE; }
+.recruit-text p { margin-bottom: 14px; }
+.recruit-photo { height: 380px; transform: rotate(-1.8deg); border: 8px solid #F9F8F6; border-radius: 3px; background: #355A6A; }
+.recruit-photo::before { color: #DDE7EA; }
+.recruit-list { margin: 20px 0 30px; }
+.recruit-list li { position: relative; padding: 6px 0 6px 26px; font-size: 15px; }
+.recruit-list li::before { content: ""; position: absolute; left: 4px; top: 16px; width: 9px; height: 9px; border-radius: 50%; background: #EBDD9C; }
+.recruit .btn-primary { background: #F2EED9; color: var(--blue-deep); border-color: #F2EED9; }
+.recruit .btn-primary:hover { background: #fff; border-color: #fff; }
+.recruit .small { color: #A9C4CE; margin-top: 12px; }
+
+/* ---------- FAQ ---------- */
+.faq { padding: 96px 5vw 100px; max-width: 800px; margin: 0 auto; }
+.faq-list details { background: #fff; border-radius: var(--radius); margin-bottom: 14px; border: 1px solid var(--line); }
+.faq-list summary { cursor: pointer; padding: 18px 54px 18px 56px; font-weight: 700; font-size: 15.5px; list-style: none; position: relative; line-height: 1.7; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::before { content: "Q"; position: absolute; left: 18px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: #fff; text-align: center; line-height: 28px; font-family: var(--font-serif); font-size: 14px; }
+.faq-list summary::after { content: "＋"; position: absolute; right: 18px; top: 16px; color: var(--blue); font-size: 18px; }
+.faq-list details[open] summary::after { content: "－"; }
+.faq-list details p { padding: 0 24px 22px 56px; color: var(--text-soft); font-size: 15px; }
+
+/* ---------- フッター ---------- */
+.site-footer { text-align: center; padding: 48px 5vw 40px; background: var(--bg-warm); font-size: 14px; color: var(--text-soft); }
+.footer-logo { font-family: var(--font-serif); font-size: 22px; color: var(--blue-deep); font-weight: 700; margin-bottom: 6px; }
+
+/* ---------- スマホ ---------- */
+@media (max-width: 860px) {
+  .gnav { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 40px 6vw 60px; }
+  .hero-photos { height: 380px; }
+  .photo-a { height: 250px; }
+  .photo-b { height: 170px; }
+  .about { grid-template-columns: 1fr; padding: 60px 6vw; }
+  .about .section-head { justify-self: start; margin-bottom: 24px; }
+  .store-card:nth-child(n) { margin-top: 0; }
+  .detail-head, .detail-cols, .recruit-inner { grid-template-columns: 1fr; }
+  .detail-head .photo { height: 220px; order: -1; }
+  .recruit-photo { height: 260px; }
+  .recruit-inner { gap: 40px; }
+  .stores, .faq { padding-top: 64px; padding-bottom: 64px; }
+}
+@media (max-width: 480px) {
+  .site-header { padding: 12px 5vw; }
+  .logo { font-size: 21px; }
+  .price-box, .info-box { padding: 24px 18px; }
+  .faq-list summary { padding-left: 52px; font-size: 15px; }
+  .faq-list details p { padding-left: 24px; }
+}
