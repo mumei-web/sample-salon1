@@ -1,1 +1,296 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ヘアサロン こもれび｜渋谷・新宿・池袋・恵比寿・横浜・千葉・大宮・梅田</title>
+  <meta name="description" content="髪のお悩み、ひとりで抱えていませんか？全8店舗のヘアサロン「こもれび」。1人ひとりの『なりたい』に、ゆっくり耳を傾けます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header class="site-header">
+  <a href="#top" class="logo">こもれび<small>hair salon</small></a>
+  <nav class="gnav" aria-label="メインメニュー">
+    <a href="#about">こもれびについて</a>
+    <a href="#stores">店舗をさがす</a>
+    <a href="#recruit">スタッフ募集</a>
+    <a href="#faq">よくある質問</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ========== トップビュー ========== -->
+  <div id="top-view">
+
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <p class="hero-sub">全8店舗／渋谷・新宿・池袋・恵比寿・横浜・千葉・大宮・梅田</p>
+        <h1>髪のお悩み、<br>ひとりで抱えていませんか？</h1>
+        <p class="hero-lead">朝のスタイリングが決まらない。美容院で「うまく言えない」まま帰ってきた。<br>そんな小さなモヤモヤから、気軽に話してください。</p>
+        <a href="#stores" class="btn btn-primary">近くのお店をさがす</a>
+      </div>
+      <div class="hero-photos">
+        <figure class="photo photo-a" data-label="店内の様子">
+          <img src="images/hero-1.jpg" alt="明るい店内で談笑するスタッフとお客様" onerror="this.remove()">
+        </figure>
+        <figure class="photo photo-b" data-label="スタッフ">
+          <img src="images/hero-2.jpg" alt="カウンセリング中の様子" onerror="this.remove()">
+        </figure>
+        <p class="hand-note">はじめての方も、<br>ふらっとどうぞ。</p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-head left">
+        <p class="eyebrow">about</p>
+        <h2>1人ひとりの『なりたい』に寄り添う</h2>
+      </div>
+      <div class="about-body">
+        <p>「こもれび」は、2009年に小さな1店舗から始まった美容室です。いまは8つの街にお店がありますが、大切にしているのは<strong>最初の10分のおしゃべり</strong>だけは変わりません。</p>
+        <p>雑誌の切り抜きがなくても大丈夫。「最近、髪がまとまらなくて」「イメチェンしたいけど失敗が怖い」。そんなひとことから、一緒に考えます。</p>
+        <ul class="about-points">
+          <li><span>1</span>カウンセリングは時間をかけて。無理な提案はしません</li>
+          <li><span>2</span>お手入れの方法まで、おうちで再現できる形でお伝えします</li>
+          <li><span>3</span>通いやすい価格で、学生さんからお仕事帰りの方まで</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stores" id="stores">
+      <div class="section-head">
+        <p class="eyebrow">our salons</p>
+        <h2>お店をえらぶ</h2>
+        <p class="section-note">お店ごとにメニューと料金が少しずつ違います。気になるお店の「詳細・料金を見る」からご確認ください。</p>
+      </div>
+      <div class="store-grid" id="store-grid"><!-- JSで店舗カードを生成 --></div>
+    </section>
+
+    <section class="recruit" id="recruit">
+      <div class="recruit-inner">
+        <div class="recruit-photo photo" data-label="スタッフ集合写真">
+          <img src="images/recruit.jpg" alt="お昼休みに笑い合うスタッフ" onerror="this.remove()">
+        </div>
+        <div class="recruit-text">
+          <p class="eyebrow">recruit</p>
+          <h2>いっしょに働く仲間を<br>さがしています</h2>
+          <p>スタッフ同士の仲のよさは、こもれびの自慢です。お昼は交代でお弁当を広げたり、閉店後に練習をみんなで見守ったり。</p>
+          <p>「わからない」と言える空気を大切にしているので、新卒の方もブランクのある方も、安心して飛び込んでください。</p>
+          <ul class="recruit-list">
+            <li>先輩がマンツーマンでつくマンツーマン制度</li>
+            <li>ママスタイリストの時短勤務・お子さんの急なお休みOK</li>
+            <li>お店見学だけの参加も大歓迎です</li>
+          </ul>
+          <a href="https://forms.gle/xxxxxxxxxxxx" class="btn btn-primary" target="_blank" rel="noopener">Googleフォームから応募する</a>
+          <p class="small">※まずは見学希望だけでもお気軽にどうぞ</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="section-head">
+        <p class="eyebrow">Q &amp; A</p>
+        <h2>よくあるご質問</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>美容院が久しぶりで、何て伝えたらいいかわかりません…</summary>
+          <p>大丈夫です。「くせ毛で朝大変」「伸ばしかけで困っている」など、普段のお悩みをそのままお話しください。写真があれば見せていただくと、よりイメージが伝わりやすいです。</p>
+        </details>
+        <details>
+          <summary>メンズでも入りやすいですか？</summary>
+          <p>はい、男性のお客様も多くご来店されています。メンズカットや眉カットだけの方も歓迎です。お店の雰囲気は各店舗ページの写真でご確認いただけます。</p>
+        </details>
+        <details>
+          <summary>仕事帰りに行きたいのですが、遅い時間も予約できますか？</summary>
+          <p>店舗により異なりますが、多くの店舗で19時半〜20時のご案内が可能です。各店舗ページの営業時間とHotPepperの空き状況をご確認ください。</p>
+        </details>
+        <details>
+          <summary>カラーで髪が傷まないか心配です。</summary>
+          <p>髪の状態を見て、ダメージが気になる場合は「根元だけ」「トリートメントを組み合わせる」など負担を減らす方法をご提案します。無理におすすめすることはありません。</p>
+        </details>
+        <details>
+          <summary>予約なしでも行けますか？</summary>
+          <p>空きがあればご案内できますが、お待たせしてしまうことがあるため、HotPepperからのご予約がおすすめです。当日の予約も受け付けています。</p>
+        </details>
+        <details>
+          <summary>キャンセルや日時変更はできますか？</summary>
+          <p>HotPepperの予約画面から変更・キャンセルが可能です。急な場合はお店に直接お電話ください。前日までにご連絡いただけると助かります。</p>
+        </details>
+        <details>
+          <summary>支払い方法は何が使えますか？</summary>
+          <p>現金のほか、各種クレジットカード・QRコード決済に対応しています（一部店舗を除く）。詳細は各店舗ページをご覧ください。</p>
+        </details>
+        <details>
+          <summary>学生なのであまり予算がありません…</summary>
+          <p>学割メニューを用意している店舗もあります。ご予約時にクーポンをご確認いただくか、お気軽にスタッフへご相談ください。予算内でできる範囲をいっしょに考えます。</p>
+        </details>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== 店舗詳細ビュー ========== -->
+  <div id="detail-view" hidden>
+    <article class="detail" id="detail-article"><!-- JSで生成 --></article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p class="footer-logo">こもれび</p>
+  <p>全8店舗／渋谷・新宿・池袋・恵比寿・横浜・千葉・大宮・梅田</p>
+  <p class="small">&copy; Komorebi Hair Salon. ※掲載の店舗情報・料金は仮のものです。</p>
+</footer>
+
+<script>
+/* ========= 店舗データ（ここを書き換えるだけで反映されます） ========= */
+const MENU_NAMES = [
+  { key: "cut",   name: "カット",            note: "シャンプー・ブロー込み" },
+  { key: "color", name: "カラー",            note: "リタッチ（根元）は別料金" },
+  { key: "perm",  name: "パーマ",            note: "カット別" },
+  { key: "treat", name: "トリートメント",    note: "髪の状態に合わせて選べます" },
+  { key: "spa",   name: "ヘッドスパ（30分）", note: "肩こり・疲れ目にも" },
+  { key: "set",   name: "カット＋カラー",    note: "いちばん人気のセット" }
+];
+
+const HOTPEPPER = "https://beauty.hotpepper.jp/slnH000000000/"; // 仮URL
+
+const STORES = [
+  { id: "shibuya", name: "渋谷店", appeal: "仕事帰りにふらっと寄れる、夜20時まで営業の駆け込み寺。",
+    address: "東京都渋谷区道玄坂1-0-0 ○○ビル3F", access: "JR渋谷駅 ハチ公口より徒歩5分", tel: "03-0000-0001",
+    hours: "平日 11:00〜20:00（最終受付19:00）／土日祝 10:00〜19:00", closed: "毎週火曜日",
+    comment: "夜遅めの時間帯が人気です。ご予約はお早めにどうぞ。",
+    price: { cut: 5200, color: 6800, perm: 8800, treat: 3300, spa: 3800, set: 11000 } },
+  { id: "shinjuku", name: "新宿店", appeal: "20〜30代のお客様が多め。流行りのスタイルもお気軽に。",
+    address: "東京都新宿区新宿3-0-0 △△ビル5F", access: "JR新宿駅 東口より徒歩4分", tel: "03-0000-0002",
+    hours: "平日 11:00〜20:00（最終受付19:00）／土日祝 10:00〜19:00", closed: "毎週水曜日",
+    comment: "ハイトーンカラーやブリーチのご相談も多い店舗です。",
+    price: { cut: 5000, color: 6500, perm: 8500, treat: 3000, spa: 3500, set: 10500 } },
+  { id: "ikebukuro", name: "池袋店", appeal: "広めの座席で、小さなお子さま連れの方もゆったり。",
+    address: "東京都豊島区南池袋1-0-0 □□ビル2F", access: "JR池袋駅 東口より徒歩6分", tel: "03-0000-0003",
+    hours: "平日 10:00〜19:30（最終受付18:30）／土日祝 9:30〜18:30", closed: "毎週月曜日",
+    comment: "キッズカット（小学生以下）は2,800円です。ご予約時にお知らせください。",
+    price: { cut: 4800, color: 6300, perm: 8200, treat: 2800, spa: 3300, set: 10000 } },
+  { id: "ebisu", name: "恵比寿店", appeal: "静かな落ち着いた空間で、ゆっくり髪と向き合えます。",
+    address: "東京都渋谷区恵比寿南1-0-0 ◇◇ビル2F", access: "JR恵比寿駅 西口より徒歩3分", tel: "03-0000-0004",
+    hours: "平日 11:00〜20:00（最終受付19:00）／土日祝 10:00〜19:00", closed: "毎週火曜日",
+    comment: "ヘッドスパの個室があり、ご利用の方に好評です。",
+    price: { cut: 5500, color: 7200, perm: 9300, treat: 3600, spa: 4200, set: 11800 } },
+  { id: "yokohama", name: "横浜店", appeal: "買い物帰りの方が多い、のんびりした雰囲気のお店です。",
+    address: "神奈川県横浜市西区南幸1-0-0 ☆☆ビル4F", access: "JR横浜駅 西口より徒歩5分", tel: "045-000-0005",
+    hours: "平日 10:00〜19:30（最終受付18:30）／土日祝 9:30〜18:30", closed: "毎週水曜日",
+    comment: "駐輪場は建物横にございます。お気軽にお声がけください。",
+    price: { cut: 4800, color: 6200, perm: 8000, treat: 2800, spa: 3300, set: 9900 } },
+  { id: "chiba", name: "千葉店", appeal: "地元の常連さんがたくさん。世間話から始まるお店です。",
+    address: "千葉県千葉市中央区新町1-0-0 ※※ビル2F", access: "JR千葉駅 東口より徒歩4分", tel: "043-000-0006",
+    hours: "平日 10:00〜19:30（最終受付18:30）／土日祝 9:30〜18:30", closed: "毎週月曜日",
+    comment: "お得なカット＋カラーセットは、千葉店がいちばんお安くなっています。",
+    price: { cut: 4500, color: 5800, perm: 7500, treat: 2500, spa: 3000, set: 9300 } },
+  { id: "omiya", name: "大宮店", appeal: "駅近でアクセス抜群。通勤前の朝一予約も受付中です。",
+    address: "埼玉県さいたま市大宮区桜木町1-0-0 ○△ビル3F", access: "JR大宮駅 西口より徒歩3分", tel: "048-000-0007",
+    hours: "平日 9:30〜19:30（最終受付18:30）／土日祝 9:30〜18:30", closed: "毎週火曜日",
+    comment: "朝9:30からのご案内があるので、出勤前の方にもおすすめです。",
+    price: { cut: 4600, color: 6000, perm: 7800, treat: 2600, spa: 3100, set: 9600 } },
+  { id: "umeda", name: "梅田店", appeal: "関西のお客様にも、こもれびの安心感をお届けします。",
+    address: "大阪府大阪市北区芝田1-0-0 ▽▽ビル4F", access: "阪急大阪梅田駅 茶屋町口より徒歩5分", tel: "06-0000-0008",
+    hours: "平日 10:00〜20:00（最終受付19:00）／土日祝 10:00〜19:00", closed: "毎週木曜日",
+    comment: "関西弁のスタッフも在籍しています。おしゃべり大歓迎です。",
+    price: { cut: 4700, color: 6100, perm: 7900, treat: 2700, spa: 3200, set: 9800 } }
+];
+
+/* ========= 描画 ========= */
+const yen = n => "¥" + n.toLocaleString("ja-JP");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function renderCards() {
+  document.getElementById("store-grid").innerHTML = STORES.map(s => `
+    <article class="store-card">
+      <figure class="photo" data-label="${esc(s.name)}">
+        <img src="images/${s.id}.jpg" alt="${esc(s.name)}の店内" loading="lazy" onerror="this.remove()">
+      </figure>
+      <div class="store-card-body">
+        <h3>${esc(s.name)}</h3>
+        <p>${esc(s.appeal)}</p>
+        <a href="#store-${s.id}" class="btn btn-outline">詳細・料金を見る</a>
+      </div>
+    </article>`).join("");
+}
+
+function renderDetail(s) {
+  const rows = MENU_NAMES.map(m => `
+    <tr><th scope="row">${m.name}<small>${m.note}</small></th><td>${yen(s.price[m.key])}<span class="tax">〜（税込）</span></td></tr>`).join("");
+  const others = STORES.filter(o => o.id !== s.id).map(o => `<a href="#store-${o.id}">${esc(o.name)}</a>`).join("");
+  document.getElementById("detail-article").innerHTML = `
+    <a href="#stores" class="back">← お店一覧にもどる</a>
+    <div class="detail-head">
+      <div>
+        <p class="eyebrow">komorebi ${esc(s.id)}</p>
+        <h2>${esc(s.name)}</h2>
+        <p class="detail-appeal">${esc(s.appeal)}</p>
+      </div>
+      <figure class="photo" data-label="${esc(s.name)}">
+        <img src="images/${s.id}.jpg" alt="${esc(s.name)}の店内" onerror="this.remove()">
+      </figure>
+    </div>
+
+    <div class="detail-cols">
+      <section class="price-box">
+        <h3>${esc(s.name)} メニューと料金</h3>
+        <table class="price-table"><tbody>${rows}</tbody></table>
+        <p class="small">※料金はお店ごとに異なります。髪の長さ・量により追加料金がかかる場合があります。</p>
+      </section>
+
+      <section class="info-box">
+        <h3>お店の情報</h3>
+        <dl>
+          <dt>営業時間</dt><dd>${esc(s.hours)}</dd>
+          <dt>定休日</dt><dd>${esc(s.closed)}</dd>
+          <dt>住所</dt><dd>${esc(s.address)}</dd>
+          <dt>アクセス</dt><dd>${esc(s.access)}</dd>
+          <dt>電話</dt><dd>${esc(s.tel)}</dd>
+        </dl>
+        <p class="staff-comment">${esc(s.comment)}</p>
+        <a href="${HOTPEPPER}?store=${s.id}" class="btn btn-primary btn-wide" target="_blank" rel="noopener">${esc(s.name)}をHotPepperで予約する</a>
+      </section>
+    </div>
+
+    <div class="other-stores">
+      <p>ほかのお店も見てみる</p>
+      <div>${others}</div>
+    </div>`;
+}
+
+/* ========= 画面切り替え（ハッシュで制御） ========= */
+const topView = document.getElementById("top-view");
+const detailView = document.getElementById("detail-view");
+
+function route() {
+  const hash = location.hash;
+  if (hash.startsWith("#store-")) {
+    const store = STORES.find(s => "#store-" + s.id === hash);
+    if (store) {
+      renderDetail(store);
+      topView.hidden = true;
+      detailView.hidden = false;
+      document.title = store.name + "｜ヘアサロン こもれび";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+  }
+  detailView.hidden = true;
+  topView.hidden = false;
+  document.title = "ヘアサロン こもれび｜渋谷・新宿・池袋・恵比寿・横浜・千葉・大宮・梅田";
+  const target = hash && hash !== "#top" ? document.querySelector(hash) : null;
+  if (target) target.scrollIntoView({ behavior: "smooth" });
+  else window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+renderCards();
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
