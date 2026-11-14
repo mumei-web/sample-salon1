@@ -269,3 +269,177 @@ h1, h2, h3 { font-family: var(--font-serif); color: var(--blue-deep); line-heigh
 .hero .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
 .logo { font-size: 21px; }
 @media (max-width: 480px) { .logo { font-size: 18px; } }
+
+/* ============================================================
+   v3追加分：お客様指定のヘッダー構成＋大人っぽい雰囲気への調整
+   ============================================================ */
+/* --- 上部の帯（クリーム色） --- */
+.band {
+  background: var(--blue-pale);
+  color: var(--blue-deep);
+  text-align: center;
+  font-size: 12.5px;
+  letter-spacing: .14em;
+  padding: 9px 5vw;
+}
+.band-sub {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  border-top: 1px solid var(--line);
+  padding-top: 7px; padding-bottom: 7px;
+}
+.band-links { display: flex; gap: 34px; }
+.band-links a { text-decoration: none; font-size: 13px; letter-spacing: .1em; color: var(--blue-deep); }
+.band-links a:hover { color: var(--blue-deep); }
+.band-btn {
+  position: absolute; right: 5vw; top: 50%; transform: translateY(-50%);
+  background: var(--blue); color: #fff; text-decoration: none;
+  font-size: 13px; font-weight: 700; letter-spacing: .08em;
+  padding: 8px 22px; border-radius: 999px;
+}
+.band-btn:hover { background: var(--blue-deep); }
+
+/* --- メインヘッダー（白地） --- */
+.site-header { background: #fff; border-bottom: 1px solid var(--line); }
+.header-contact { display: flex; align-items: center; gap: 22px; }
+.tel-block { text-align: right; line-height: 1.35; }
+.tel-block span { display: block; font-size: 11.5px; color: var(--text-soft); letter-spacing: .1em; }
+.tel-block strong { background: none; font-family: var(--font-serif); font-size: 21px; color: var(--blue-deep); font-weight: 700; }
+.tel-block strong small { font-family: var(--font-body); font-size: 11.5px; color: var(--text-soft); font-weight: 400; margin-left: 6px; }
+.btn-line {
+  background: #06C755; color: #fff; text-decoration: none;
+  font-weight: 700; font-size: 14.5px; letter-spacing: .06em;
+  padding: 13px 26px; border-radius: 999px; white-space: nowrap;
+}
+.btn-line:hover { opacity: .88; }
+
+/* --- 大文字英語＋日本語のナビ --- */
+.main-nav {
+  background: #fff;
+  display: flex; justify-content: center; gap: 44px;
+  padding: 12px 5vw 14px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.main-nav a { text-decoration: none; text-align: center; font-size: 13px; color: var(--text); line-height: 1.5; letter-spacing: .08em; }
+.main-nav a span { display: block; font-size: 10.5px; letter-spacing: .28em; color: var(--blue); font-weight: 500; }
+.main-nav a:hover span { color: var(--blue-deep); }
+
+@media (max-width: 860px) {
+  .main-nav { display: none; }
+  .band-btn { position: static; transform: none; margin-left: 20px; }
+  .band-sub { justify-content: space-between; }
+  .header-contact { gap: 12px; }
+  .tel-block { display: none; }
+  .btn-line { padding: 10px 18px; font-size: 13px; }
+}
+
+/* ============================================================
+   v4追加分：全面写真のFV（参考サイトの見せ方）
+   ============================================================ */
+.hero-fv {
+  position: relative;
+  min-height: 92vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: linear-gradient(120deg, #DDE7EA 0%, #A9C3CE 55%, #6E97A8 100%);
+}
+.hero-fv-photo { position: absolute; inset: 0; border-radius: 0; background: transparent; }
+.hero-fv-photo::before { font-size: 18px; color: rgba(32,64,81,.55); }
+.hero-fv-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-fv::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(23,44,56,.45) 0%, rgba(23,44,56,.14) 55%, rgba(23,44,56,0) 75%);
+}
+.hero-fv-inner { position: relative; z-index: 2; padding: 100px 6vw; max-width: 780px; color: #fff; }
+.hero-fv-over { font-size: 12.5px; letter-spacing: .3em; margin-bottom: 22px; color: #EAF1F4; }
+.hero-fv-inner h1 {
+  color: #fff; font-weight: 500;
+  font-size: clamp(32px, 5.6vw, 56px); line-height: 1.5; letter-spacing: .06em;
+  text-shadow: 0 2px 18px rgba(23,44,56,.4);
+  margin-bottom: 22px;
+}
+.hero-fv-lead { font-size: 15.5px; line-height: 2; color: rgba(255,255,255,.92); text-shadow: 0 1px 10px rgba(23,44,56,.45); }
+.hero-fv-script { font-family: "Great Vibes", cursive; font-size: clamp(26px, 3.4vw, 36px); color: #F2EED9; margin: 18px 0 30px; }
+.btn-glass {
+  background: rgba(255,255,255,.14); color: #fff;
+  border: 1.5px solid rgba(255,255,255,.85);
+  backdrop-filter: blur(2px);
+}
+.btn-glass:hover { background: rgba(255,255,255,.3); }
+@media (max-width: 860px) {
+  .hero-fv { min-height: 80vh; }
+  .hero-fv::after { background: linear-gradient(180deg, rgba(23,44,56,.32), rgba(23,44,56,.5)); }
+  .hero-fv-inner { padding: 70px 6vw; }
+}
+
+/* v6：FV写真の見え方（縦長写真のため、顔まわりが見える位置に） */
+.hero-fv-photo img { object-position: center 28%; }
+
+/* v7：FVスライド（2枚をクロスフェードで切替） */
+.fv-slide {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 28%;
+  opacity: 0; transition: opacity 1.6s ease;
+}
+.fv-slide.is-active { opacity: 1; }
+
+/* ============================================================
+   v8：お客様の完成写真に合わせ、FVは写真そのまま表示に
+   ============================================================ */
+.logo-img { height: 48px; width: auto; display: block; border-radius: 8px; }
+.hero-fv { min-height: 0; height: min(88vh, 56.25vw); display: block; }
+.hero-fv::after { display: none; }
+.fv-slide { object-position: center; }
+.fv-message { padding: 60px 6vw 6px; text-align: center; }
+.fm-over { font-size: 12.5px; letter-spacing: .3em; color: var(--blue); margin-bottom: 18px; }
+.fv-message h1 {
+  font-family: var(--font-head); font-weight: 600;
+  font-size: clamp(28px, 4.6vw, 44px); line-height: 1.55; letter-spacing: .05em;
+  color: var(--blue-deep); margin-bottom: 18px;
+}
+.fm-lead { color: var(--text-soft); font-size: 15px; line-height: 2; }
+.fm-script { font-family: "Great Vibes", cursive; font-size: clamp(26px, 3.4vw, 34px); color: var(--accent); margin: 14px 0 26px; }
+.fv-message .btn-row { justify-content: center; }
+.btn-outline { background: #fff; color: var(--blue-deep); border: 1.5px solid var(--blue); }
+.btn-outline:hover { background: var(--blue-pale); }
+
+/* ============================================================
+   v9：PC・スマホ表示の調整（違和感の解消）
+   ============================================================ */
+/* 見出しフォントの指定ミスを修正（--font-head は未定義だった） */
+.fv-message h1 { font-family: var(--font-serif); }
+/* ボタン行の基本形（.hero の外でも効くように） */
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+/* FV下の2ボタンの大きさ・太さを揃える */
+.fv-message .btn { padding: 13px 30px; font-size: 15px; }
+.fv-message .btn-outline { border: 2px solid var(--blue); background: #fff; color: var(--blue-deep); }
+/* FVは画像の比率そのまま表示（上下が切れない） */
+.hero-fv { height: auto; aspect-ratio: 16 / 9; }
+
+@media (max-width: 860px) {
+  /* スマホでもナビを消さず、横スクロールで出す */
+  .main-nav {
+    display: flex; flex-wrap: nowrap; justify-content: flex-start;
+    overflow-x: auto; gap: 30px; padding: 10px 5vw 12px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .main-nav::-webkit-scrollbar { display: none; }
+  .main-nav a { flex: none; }
+  /* 帯のキャッチコピーが小さな画面で折り返さないように */
+  .band { font-size: 11px; letter-spacing: .06em; }
+  .logo-img { height: 42px; }
+  .fv-message { padding-top: 44px; }
+}
+@media (max-width: 640px) {
+  .fm-over { font-size: 11px; letter-spacing: .18em; line-height: 1.9; }
+  /* FV下のボタンは縦並び・幅そろえで見やすく */
+  .fv-message .btn-row { flex-direction: column; align-items: center; }
+  .fv-message .btn { width: min(320px, 86vw); }
+}
+@media (max-width: 480px) {
+  .band-links { gap: 22px; }
+  .band-btn { margin-left: 12px; padding: 8px 16px; }
+  .price-table th { font-size: 14px; }
+  .price-table td { font-size: 17px; }
+}
