@@ -8,46 +8,58 @@
   <meta name="description" content="似合う眉と、白い歯。第一印象は、つくれる。眉毛専門店 iBROW.（アイブロウドット）・eyeroom と、ホワイトニング SHIRO・WHITE の公式サイト。川口・大宮・川越・新越谷・静岡・新宿の全8店舗。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="site-header">
-  <a href="#top" class="logo">iBROW.<small>eyebrow salon &amp; whitening</small></a>
-  <nav class="gnav" aria-label="メインメニュー">
-    <a href="#about">私たちについて</a>
-    <a href="#eyebrow">眉毛サロン</a>
-    <a href="#whitening">ホワイトニング</a>
-    <a href="#recruit">スタッフ募集</a>
+<div class="band band-main">眉毛・ホワイトニングのトータルビューティーサロン</div>
+<div class="band band-sub">
+  <div class="band-links">
     <a href="#faq">よくある質問</a>
-  </nav>
+    <a href="#eyebrow">店舗一覧</a>
+  </div>
+  <a class="band-btn" href="#eyebrow">ご予約はこちら</a>
+</div>
+<header class="site-header">
+  <a href="#top" class="logo"><img class="logo-img" src="images/logo-ibrow.jpg" alt="iBROW."></a>
+  <div class="header-contact">
+    <div class="tel-block">
+      <span>電話予約はこちら</span>
+      <strong>03-0000-0000<small>（受付 10:00 - 20:00）</small></strong>
+    </div>
+    <a class="btn-line" href="#">LINEで予約する</a>
+  </div>
 </header>
+<nav class="main-nav" aria-label="メインメニュー">
+  <a href="#about"><span>CONCEPT</span>コンセプト</a>
+  <a href="#eyebrow"><span>EYEBROW</span>眉毛サロン</a>
+  <a href="#whitening"><span>WHITENING</span>ホワイトニング</a>
+  <a href="#recruit"><span>RECRUIT</span>採用情報</a>
+  <a href="#faq"><span>Q&amp;A</span>よくある質問</a>
+</nav>
 
 <main>
   <!-- ========== トップビュー ========== -->
   <div id="top-view">
 
-    <section class="hero" id="top">
-      <div class="hero-text">
-        <p class="hero-sub">眉毛専門店 全6店舗＋ホワイトニング 2店舗／川口・大宮・川越・新越谷・静岡・新宿</p>
-        <h1>似合う眉と、白い歯。<br>第一印象は、つくれる。</h1>
-        <p class="hero-lead">「自分に合う眉がわからない」「笑ったときの歯の色が気になる」。<br>そんな小さなモヤモヤから、気軽に話してください。</p>
-        <div class="btn-row">
-          <a href="#eyebrow" class="btn btn-primary">眉毛サロンをさがす</a>
-          <a href="#whitening" class="btn btn-outline">ホワイトニングをさがす</a>
-        </div>
-      </div>
-      <div class="hero-photos">
-        <figure class="photo photo-a" data-label="店内の様子">
-          <img src="images/hero-1.jpg" alt="明るい店内で談笑するスタッフとお客様" onerror="this.remove()">
-        </figure>
-        <figure class="photo photo-b" data-label="カウンセリング中">
-          <img src="images/hero-2.jpg" alt="カウンセリング中の様子" onerror="this.remove()">
-        </figure>
-        <p class="hand-note">はじめての方も、<br>メンズも大歓迎です。</p>
+    <section class="hero-fv" id="top">
+      <div class="hero-fv-photo photo" data-label="メインビジュアル">
+        <img class="fv-slide is-active" src="images/hero-1.jpg" alt="サロンのメインビジュアル" onerror="this.remove()">
+        <img class="fv-slide" src="images/hero-2.jpg" alt="" onerror="this.remove()">
       </div>
     </section>
+
+    <section class="fv-message">
+      <p class="fm-over">EYEBROW SALON &amp; WHITENING — 全8店舗</p>
+      <h1>似合う眉と、白い歯。<br>第一印象は、つくれる。</h1>
+      <p class="fm-lead">眉毛専門店「iBROW.」「eyeroom」と、ホワイトニング「SHIRO」「WHITE」。<br>川口・大宮・川越・新越谷・静岡・新宿でお待ちしています。</p>
+      <p class="fm-script">be yourself, beautifully</p>
+      <div class="btn-row">
+        <a href="#eyebrow" class="btn btn-primary">眉毛サロンをさがす</a>
+        <a href="#whitening" class="btn btn-outline">ホワイトニングをさがす</a>
+      </div>
+</section>
 
     <section class="about" id="about">
       <div class="section-head left">
@@ -354,5 +366,20 @@ renderCards();
 window.addEventListener("hashchange", route);
 route();
 </script>
+
+  <script>
+  // FVスライド：約6秒ごとにゆっくりクロスフェード
+  (function () {
+    var slides = document.querySelectorAll(".fv-slide");
+    if (slides.length < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var i = 0;
+    setInterval(function () {
+      slides[i].classList.remove("is-active");
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("is-active");
+    }, 6000);
+  })();
+  </script>
 </body>
 </html>
