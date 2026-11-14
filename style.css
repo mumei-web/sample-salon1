@@ -1,452 +1,466 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>iBROW.・eyeroom・SHIRO・WHITE｜眉毛専門店＆ホワイトニング 全8店舗</title>
-  <meta name="description" content="似合う眉と、白い歯。第一印象は、つくれる。眉毛専門店 iBROW.（アイブロウドット）・eyeroom と、ホワイトニング SHIRO・WHITE の公式サイト。川口・大宮・川越・新越谷・静岡・新宿の全8店舗。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* style.css — 本制作たたき台v2（仮制作 style.css をベースに、2事業対応の追加分を末尾に記載） */
 
-<div class="band band-main">眉毛・ホワイトニングのトータルビューティーサロン</div>
-<div class="band band-sub">
-  <div class="band-links">
-    <a href="#faq">よくある質問</a>
-    <a href="#eyebrow">店舗一覧</a>
-  </div>
-  <a class="band-btn" href="#eyebrow">ご予約はこちら</a>
-</div>
-<header class="site-header">
-  <a href="#top" class="logo"><img class="logo-img" src="images/logo-ibrow.jpg" alt="iBROW."></a>
-</header>
-<nav class="main-nav" aria-label="メインメニュー">
-  <a href="#about"><span>CONCEPT</span>コンセプト</a>
-  <a href="#eyebrow"><span>EYEBROW</span>眉毛サロン</a>
-  <a href="#whitening"><span>WHITENING</span>ホワイトニング</a>
-  <a href="#recruit"><span>RECRUIT</span>採用情報</a>
-  <a href="#faq"><span>Q&amp;A</span>よくある質問</a>
-</nav>
-
-<main>
-  <!-- ========== トップビュー ========== -->
-  <div id="top-view">
-
-    <section class="hero-fv" id="top">
-      <div class="hero-fv-photo photo" data-label="メインビジュアル">
-        <img class="fv-slide is-active" src="images/hero-1.jpg" alt="サロンのメインビジュアル" onerror="this.remove()">
-        <img class="fv-slide" src="images/hero-2.jpg" alt="" onerror="this.remove()">
-      </div>
-    </section>
-
-    <section class="fv-message">
-      <p class="fm-over">EYEBROW SALON &amp; WHITENING — 全8店舗</p>
-      <h1>似合う眉と、白い歯。<br>第一印象は、つくれる。</h1>
-      <p class="fm-lead">眉毛専門店「iBROW.」「eyeroom」と、ホワイトニング「SHIRO」「WHITE」。<br>川口・大宮・川越・新越谷・静岡・新宿でお待ちしています。</p>
-      <p class="fm-script">be yourself, beautifully</p>
-      <div class="btn-row">
-        <a href="#eyebrow" class="btn btn-primary">眉毛サロンをさがす</a>
-        <a href="#whitening" class="btn btn-outline">ホワイトニングをさがす</a>
-      </div>
-</section>
-
-    <section class="about" id="about">
-      <div class="section-head left">
-        <p class="eyebrow">about</p>
-        <h2>1人ひとりの『似合う』に寄り添う</h2>
-      </div>
-      <div class="about-body">
-        <p>私たちは、眉毛専門店<strong>「iBROW.（アイブロウドット）」「eyeroom」</strong>と、ホワイトニング<strong>「SHIRO」「WHITE」</strong>を運営しています。大切にしているのは、施術の前のカウンセリングで、しっかり耳を傾けることです。</p>
-        <p>「左右差が気になる」「眉の描き方がわからない」「写真に写る自分の笑顔が気になる」。そんなお悩みを、骨格やお顔のパーツに合わせたご提案で、一緒に解決していきます。</p>
-        <ul class="about-points">
-          <li><span>1</span>カウンセリングは時間をかけて。無理な提案はしません</li>
-          <li><span>2</span>黄金比×骨格で測る、あなただけの似合わせデザイン</li>
-          <li><span>3</span>メンズ・初めての方も歓迎。アットホームな雰囲気でお迎えします</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="stores" id="eyebrow">
-      <div class="section-head">
-        <p class="eyebrow">eyebrow salon</p>
-        <h2>眉毛サロンをえらぶ</h2>
-        <p class="section-note">お店ごとにメニューと料金が少しずつ違います。気になるお店の「詳細・料金を見る」からご確認ください。</p>
-      </div>
-      <div class="store-grid" id="eyebrow-grid"><!-- JSで店舗カードを生成 --></div>
-    </section>
-
-    <section class="stores alt" id="whitening">
-      <div class="section-head">
-        <p class="eyebrow">whitening</p>
-        <h2>ホワイトニングをえらぶ</h2>
-        <p class="section-note">新宿は眉毛サロンと同じお部屋、川越は同じフロアにあります。同じ日にまとめて受けたい方は、両方のお店をご予約ください。</p>
-      </div>
-      <div class="store-grid" id="whitening-grid"><!-- JSで店舗カードを生成 --></div>
-    </section>
-
-    <section class="recruit" id="recruit">
-      <div class="recruit-inner">
-        <div class="recruit-photo photo" data-label="スタッフ集合写真">
-          <img src="images/recruit.jpg" alt="笑顔のスタッフ" onerror="this.remove()">
-        </div>
-        <div class="recruit-text">
-          <p class="eyebrow">recruit</p>
-          <h2>いっしょに働く仲間を<br>さがしています</h2>
-          <p>眉毛とホワイトニングの専門店で、お客様の「似合う」を一緒につくる仕事です。</p>
-          <p>応募はもちろん、お店見学だけの参加も歓迎しています。まずはフォームからお気軽にどうぞ。</p>
-          <ul class="recruit-list">
-            <li>募集店舗：川口・大宮・川越・新越谷・静岡・新宿（全8店舗）</li>
-            <li>職種：眉毛サロンスタッフ／ホワイトニングスタッフ</li>
-            <li>お店見学だけの参加も大歓迎です</li>
-          </ul>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScioyRLbJinTWCiEUjoCBJADLF4UkJIu0IgXylwB3P2kunfPg/viewform?usp=publish-editor" class="btn btn-primary" target="_blank" rel="noopener">Googleフォームから応募する</a>
-          <p class="small">※まずは見学希望だけでもお気軽にどうぞ</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq" id="faq">
-      <div class="section-head">
-        <p class="eyebrow">Q &amp; A</p>
-        <h2>よくあるご質問</h2>
-      </div>
-      <div class="faq-list">
-        <details>
-          <summary>眉毛サロンが初めてで、何を伝えたらいいかわかりません…</summary>
-          <p>大丈夫です。カウンセリングで骨格やお顔のパーツの黄金比を測り、似合う眉をご提案します。「左右差が気になる」「描き方がわからない」など、普段のお悩みをそのままお話しください。</p>
-        </details>
-        <details>
-          <summary>メンズでも利用できますか？</summary>
-          <p>はい。メンズ専用メニューを用意している店舗もあります（川口店など）。清潔感のある似合わせ眉は、ビジネスシーンでも好評です。各店舗ページのメニューをご確認ください。</p>
-        </details>
-        <details>
-          <summary>眉毛とホワイトニングを同じ日に受けられますか？</summary>
-          <p>新宿（同じお部屋）と川越（同じフロア）では、両方のお店が同じ場所にあります。それぞれの店舗ページからご予約いただければ、同じ日にまとめて受けられます。</p>
-        </details>
-        <details>
-          <summary>料金はどの店舗も同じですか？</summary>
-          <p>店舗ごとに少しずつ異なります。各店舗ページの料金表と、ホットペッパービューティーのクーポンをご確認ください。</p>
-        </details>
-        <details>
-          <summary>予約なしでも行けますか？</summary>
-          <p>完全予約制の店舗もあるため、ホットペッパービューティーからのご予約がおすすめです。当日予約に対応している店舗もあります。</p>
-        </details>
-        <details>
-          <summary>キャンセルや日時変更はできますか？</summary>
-          <p>ホットペッパービューティーの予約画面から変更・キャンセルが可能です。急な場合はお店に直接お電話ください。</p>
-        </details>
-      </div>
-    </section>
-  </div>
-
-  <!-- ========== 店舗詳細ビュー ========== -->
-  <div id="detail-view" hidden>
-    <article class="detail" id="detail-article"><!-- JSで生成 --></article>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <p class="footer-logo">iBROW.／eyeroom／SHIRO／WHITE</p>
-  <p>眉毛専門店6店舗＋ホワイトニング2店舗／川口・大宮・川越・新越谷・静岡・新宿</p>
-  <p class="small">&copy; iBROW. All rights reserved.</p>
-</footer>
-
-<script>
-/* ========= 店舗データ（ホットペッパービューティー掲載情報 2026-11-14時点） ========= */
-/* menus は各店の掲載クーポン（2026-11-14に確認、期間限定クーポンは除外）。price は数値（円）、割引表記は priceText で記載 */
-const STORES = [
-  /* ---------- 眉毛サロン ---------- */
-  { id: "kawaguchi", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
-    name: "アイブロウドット 川口店", rating: "★4.60（口コミ201件）",
-    appeal: "川口駅徒歩2分、夜22時まで営業。メンズも歓迎の眉毛専門店です。",
-    address: "埼玉県川口市栄町3-1-13 若菜ビル305", access: "JR川口駅 東口より徒歩2分", tel: "048-229-2369",
-    hours: "9:00～22:00", closed: "不定休",
-    comment: "骨格やお顔のパーツの黄金比をもとに、あなたに合う美眉をご提案します。自眉を活かす施術なので、日々のメイクが簡単になります。",
-    hp: "https://beauty.hotpepper.jp/kr/slnH000753013/",
-    menus: [
-      { name: "美眉アイブロウWAX＋毛量調整", note: "人気No.1", price: 4980 },
-      { name: "美眉アイブロウWAX（女性・新規）", note: "", price: 4200 },
-      { name: "美眉アイブロウWAX（男性・新規）", note: "男性限定", price: 4200 },
-      { name: "眉毛＋パーツ脱毛", note: "当店No.2／鼻 or 口 or Cゾーン", price: 4500 },
-      { name: "美眉ワックス脱毛（U24学割）", note: "学生証の提示が必要です", price: 4000 },
-      { name: "メンズ美眉ワックス脱毛", note: "男性・2回目以降", price: 5980 },
-      { name: "美眉ワックス脱毛＋間引きセット", note: "2回目以降の方", price: 6200 },
-      { name: "美眉ワックス脱毛（学割U24）", note: "リピーター限定", price: 4980 },
-      { name: "眉毛＋全顔ワックス脱毛", note: "", price: 12000 }
-    ] },
-  { id: "omiya", type: "eyebrow", brand: "eyeroom", brandEn: "eyeroom",
-    name: "アイルーム 大宮店", rating: "★4.88（口コミ90件）",
-    appeal: "朝8時から夜23時まで。出勤前にも通える眉毛サロンです。",
-    address: "埼玉県さいたま市大宮区東町1丁目146-2 ラプラド1F", tel: "048-871-6562",
-    hours: "8:00～23:00", closed: "不定休",
-    comment: "ホットペッパービューティーの口コミは4.88と、全店でもトップクラスの評価をいただいています。",
-    hp: "https://beauty.hotpepper.jp/kr/slnH000818984/",
-    menus: [
-      { name: "美眉アイブロウWAX＋間引き（毛量調整）", note: "人気No.1", price: 4980 },
-      { name: "美眉アイブロウWAX（女性）", note: "新規", price: 4400 },
-      { name: "美眉アイブロウWAX（男性）", note: "男性限定・新規", price: 4500 },
-      { name: "眉毛＋パーツ脱毛", note: "人気No.2／鼻 or 口 or Cゾーン", price: 4980 },
-      { name: "眉毛＋全顔ワックス脱毛", note: "", price: 13000 },
-      { name: "美眉ワックス脱毛", note: "リピーター限定", price: 5500 },
-      { name: "美眉ワックス脱毛＋間引き（毛量調整）", note: "2回目以降", price: 6300 },
-      { name: "美眉ワックス脱毛（学割U24）", note: "リピーター限定", price: 4980 },
-      { name: "美眉アイブロウスタイリング相談", note: "相談後にメニューを決定", priceText: "無料" }
-    ] },
-  { id: "kawagoe", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
-    name: "アイブロウドット 川越店", rating: "★4.83（口コミ170件）",
-    appeal: "同じフロアにホワイトニングも。眉と歯をまとめて整えられます。",
-    pair: "同じフロアにホワイトニング「WHITE 川越店」があります",
-    address: "埼玉県川越市新宿町1-1-13 大谷ビル2F", tel: "049-238-4490",
-    hours: "10:00～21:00", closed: "不定休",
-    comment: "ホットペッパービューティーの口コミは4.83（170件）と高評価をいただいています。",
-    hp: "https://beauty.hotpepper.jp/kr/slnH000685765/",
-    menus: [
-      { name: "女性アイブロウWAX＋パーツ脱毛", note: "人気No.1／額 or 頬", price: 5500 },
-      { name: "女性アイブロウWAX＋パーツ脱毛", note: "人気No.2／鼻 or 口 or Cゾーン", price: 5000 },
-      { name: "美眉アイブロウスタイリング", note: "新規", price: 4880 },
-      { name: "メンズアイブロウ眉毛スタイリング", note: "男性・新規", priceText: "￥5,500 → ￥4,980" },
-      { name: "男性アイブロウスタイリング＋パーツ脱毛", note: "男性限定・新規／額 or 頬", price: 6500 },
-      { name: "まつげパーマ", note: "新規／トリートメント or アイシャンプー込", price: 5000 },
-      { name: "アイブロウWAX＋まつげパーマ", note: "新規", price: 8800 },
-      { name: "選べるまつげパーマ", note: "2回目以降", price: 5500 },
-      { name: "アイブロウスタイリング（女性）", note: "再来", price: 5500 },
-      { name: "メンズアイブロウ眉毛スタイリング", note: "男性・再来", price: 5980 },
-      { name: "アイブロウスタイリング", note: "学割U24・男性・再来", price: 5500 }
-    ] },
-  { id: "shinkoshigaya", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
-    name: "アイブロウドット 新越谷店", rating: "★4.74（口コミ146件）",
-    appeal: "黄金比アイブロウが人気。夜21時まで営業しています。",
-    address: "埼玉県越谷市南越谷4丁目8-6 キャピタル新越谷405号室", tel: "048-972-4508",
-    hours: "9:00～21:00", closed: "不定休",
-    comment: "ホットペッパービューティーの口コミは4.74（146件）と高評価をいただいています。",
-    hp: "https://beauty.hotpepper.jp/kr/slnH000777968/",
-    menus: [
-      { name: "黄金比アイブロウWAX＋毛量調整", note: "人気No.1", price: 4780 },
-      { name: "美眉アイブロウスタイリング", note: "女性・新規", price: 3880 },
-      { name: "骨格診断つきアイブロウスタイリング", note: "男性限定・新規", price: 3980 },
-      { name: "アイブロウスタイリング", note: "平日・当日予約限定／新規", price: 3600 },
-      { name: "アイブロウスタイリング＋パーツ脱毛", note: "女性・新規／鼻 or 口 or Cゾーン", price: 4780 },
-      { name: "アイブロウスタイリング＋顔WAX脱毛", note: "女性・新規／額 or 頬周り", price: 5780 },
-      { name: "アイブロウスタイリング＋顔WAX脱毛", note: "女性・新規／額＋Cゾーン", price: 6380 },
-      { name: "アイブロウスタイリング＋顔WAX脱毛", note: "メンズ・新規／額＋Cゾーン", price: 6480 },
-      { name: "デザイン選べるまつげパーマ", note: "新規", price: 4500 },
-      { name: "上下まつげパーマ", note: "新規", price: 7500 },
-      { name: "アイブロウスタイリング＋まつげパーマ", note: "新規", price: 7500 },
-      { name: "アイブロウスタイリング＋間引きセット", note: "2回目以降", price: 6100 },
-      { name: "アイブロウスタイリング＋パーツWAX脱毛", note: "2回目以降／鼻 or Cゾーン or 口", price: 6100 },
-      { name: "アイブロウスタイリング（女性限定）", note: "再来", price: 5200 },
-      { name: "メンズアイブロウスタイリング", note: "再来", price: 5500 },
-      { name: "完全オーダーメイド診断", note: "施術料金は別途", priceText: "無料" }
-    ] },
-  { id: "shizuoka", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
-    name: "アイブロウドット 静岡店", rating: "★4.62（口コミ299件）",
-    appeal: "御幸町エリア、夜22時まで営業の眉毛専門店です。",
-    address: "静岡県静岡市葵区御幸町4-2 ポワソンビル3B", tel: "054-270-7434",
-    hours: "10:00～22:00（最終受付21:00）", closed: "不定休",
-    comment: "ホットペッパービューティーの口コミは299件と、多くのお客様にご利用いただいています。",
-    hp: "https://beauty.hotpepper.jp/kr/slnH000735936/",
-    menus: [
-      { name: "アイブロウ＋パーツ脱毛", note: "人気No.1／鼻 or 口 or Cゾーン", price: 4700 },
-      { name: "アイブロウスタイリング＋間引きセット", note: "新規", price: 4600 },
-      { name: "アイブロウスタイリング＋顔WAX脱毛", note: "新規／額 or 頬周り", price: 5700 },
-      { name: "選べるまつ毛パーマ＆アイブロウWAX", note: "新規", price: 8000 },
-      { name: "アイブロウスタイリング", note: "再来", price: 5500 },
-      { name: "アイブロウ＋間引きセット", note: "全員", price: 6000 },
-      { name: "アイブロウ＋パーツ脱毛", note: "全員", price: 6600 },
-      { name: "アイブロウ＋顔WAX脱毛", note: "全員／額 or 頬周り", price: 6980 },
-      { name: "アイブロウスタイリング＋全顔WAX脱毛", note: "全員", price: 10500 },
-      { name: "美眉アイブロウWAX", note: "学割U24／骨格診断つき", price: 4980 },
-      { name: "美眉アイブロウスタイリング相談", note: "相談後にメニューを決定", priceText: "無料" }
-    ] },
-  { id: "shinjuku", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
-    name: "アイブロウドット 新宿店", rating: "★4.84（口コミ652件）",
-    appeal: "口コミ652件・4.84と全店トップの評価。ホワイトニングも同じお部屋で。",
-    pair: "同じお部屋にホワイトニング「SHIRO 新宿店」があります",
-    address: "東京都新宿区西新宿7丁目5-6 新宿ダイカンプラザ756 301号室", tel: "03-5937-6537",
-    hours: "10:00～23:00", closed: "不定休",
-    comment: "ホットペッパービューティーの口コミは4.84（652件）。多くのリピーター様に支えられている店舗です。",
-    hp: "https://beauty.hotpepper.jp/kr/slnH000749485/",
-    menus: [
-      { name: "眉毛アイブロウWAXデザイン＋間引き", note: "人気No.1・新規", price: 5200 },
-      { name: "眉毛アイブロウWAXデザイン", note: "初めての方・新規", price: 4200 },
-      { name: "眉毛アイブロウWAXデザイン", note: "当日予約限定・新規", priceText: "￥4,500 → ￥3,980" },
-      { name: "眉毛アイブロウWAXデザイン（女性）", note: "平日限定・新規", price: 4000 },
-      { name: "眉毛アイブロウWAXデザイン（男性）", note: "平日限定・新規", price: 4000 },
-      { name: "眉毛アイブロウWAXデザイン＋パーツ脱毛", note: "新規／鼻 or 口 or Cゾーン", price: 5200 },
-      { name: "眉毛アイブロウWAXデザイン＋顔WAX脱毛", note: "新規／額 or 頬周り", price: 6200 },
-      { name: "デザイン選べるオリジナルまつげパーマ", note: "新規", price: 4500 },
-      { name: "韓国風束感まつげパーマ", note: "新規／アイシャンプー＆トリートメント込", price: 5400 },
-      { name: "眉毛アイブロウ＋まつげパーマ", note: "新規", price: 8980 },
-      { name: "眉毛アイブロウWAXデザイン＋間引き", note: "全員", price: 5980 },
-      { name: "眉毛アイブロウWAXデザイン（女性）", note: "女性・再来限定", price: 4980 },
-      { name: "眉毛アイブロウWAXデザイン＋全顔WAX脱毛", note: "全員", price: 12000 },
-      { name: "デザイン選べるオリジナルまつげパーマ", note: "2回目以降", price: 5200 },
-      { name: "眉毛アイブロウWAXデザイン", note: "学割U24", price: 3800 }
-    ] },
-
-  /* ---------- ホワイトニング ---------- */
-  { id: "shinjuku-shiro", type: "whitening", brand: "SHIRO", brandEn: "shiro",
-    name: "シロ 新宿店", rating: "★5.00（口コミ9件）",
-    appeal: "iBROW.新宿店と同じお部屋。眉と歯を、同じ日に整えられます。",
-    pair: "眉毛専門店「iBROW. 新宿店」と同じお部屋です",
-    address: "東京都新宿区西新宿7-5-6 新宿ダイカンプラザ756 301号室", tel: "070-3152-4710",
-    hours: "10:00～21:00", closed: "不定休",
-    comment: "ホットペッパービューティーの口コミは5.00（9件）。眉毛とあわせてのご利用も増えています。",
-    hp: "https://beauty.hotpepper.jp/kr/slnH000818615/",
-    menus: [
-      { name: "回数券コース", note: "人気No.1／20分×20回", priceText: "￥69,800 → ￥38,800" },
-      { name: "回数券コース", note: "人気No.3／20分×10回", priceText: "￥34,900 → ￥28,800" },
-      { name: "WHITEプレミアム美白コース", note: "新規／60分照射", priceText: "￥29,800 → ￥14,800" },
-      { name: "セルフホワイトニング", note: "新規／17分×2回", priceText: "￥6,000 → ￥2,500" },
-      { name: "セルフホワイトニング", note: "学割U24・新規／17分×2回", priceText: "￥6,980 → ￥2,000" },
-      { name: "ブライダル 1Day集中コース", note: "新規／20分×3回", price: 9800 },
-      { name: "美白セルフホワイトニング", note: "全員／照射40分", price: 6980 },
-      { name: "ペア来店予約", note: "全員／15分×2回照射・予約時はお電話ください", priceText: "￥9,960 → ￥4,980" },
-      { name: "セルフホワイトニング（歯科提携）", note: "当日ご成約の方限定", priceText: "￥2,500 → ￥0" },
-      { name: "回数券の会員様限定（ご予約用）", note: "回数券をお持ちの方専用", priceText: "￥0" }
-    ] },
-  { id: "kawagoe-white", type: "whitening", brand: "WHITE", brandEn: "white",
-    name: "ホワイト 川越店", rating: "★4.70（口コミ167件）",
-    appeal: "iBROW.川越店と同じフロア。セルフホワイトニングが手軽に試せます。",
-    pair: "眉毛専門店「iBROW. 川越店」と同じフロアです",
-    address: "埼玉県川越市新宿町1-1-13 大谷ビル2F", tel: "080-8117-6303",
-    hours: "10:00～23:00", closed: "不定休",
-    comment: "ホットペッパービューティーの口コミは4.70（167件）と高評価をいただいています。",
-    hp: "https://beauty.hotpepper.jp/kr/slnH000685764/",
-    menus: [
-      { name: "セルフホワイトニング", note: "人気No.1／20分×2回", priceText: "￥6,000 → ￥2,500" },
-      { name: "回数券10回券", note: "当店人気No.1／40分×10回", priceText: "￥80,000 → ￥40,000" },
-      { name: "セルフホワイトニング 照射30分", note: "学割U24・人気No.2", price: 1500 },
-      { name: "1日完結セルフホワイトニング", note: "新規／1日で白くしたい方へ", price: 6980 },
-      { name: "セルフホワイトニング", note: "誕生日月限定・新規", priceText: "￥1,980 → ￥500" },
-      { name: "セルフホワイトニング", note: "ご紹介様限定・新規", price: 1000 },
-      { name: "ブライダル 1Day集中コース", note: "20分×3回", price: 9800 },
-      { name: "セルフホワイトニング 30分", note: "学割U24", price: 6000 },
-      { name: "無料カウンセリング", note: "メニューはご来店後に相談", priceText: "無料" },
-      { name: "回数券の会員様限定（ご予約用）", note: "回数券をご購入の方限定", priceText: "￥0" }
-    ] }
-];
-
-/* ========= 描画 ========= */
-const yen = n => "¥" + n.toLocaleString("ja-JP");
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const SITE_TITLE = "iBROW.・eyeroom・SHIRO・WHITE｜眉毛専門店＆ホワイトニング 全8店舗";
-
-function cardHTML(s) {
-  return `
-    <article class="store-card">
-      <figure class="photo" data-label="${esc(s.name)}">
-        <img src="images/${s.id}.jpg" alt="${esc(s.name)}の店内" loading="lazy" onerror="this.remove()">
-      </figure>
-      <div class="store-card-body">
-        <span class="brand-tag${s.type === "whitening" ? " white" : ""}">${esc(s.brand)}</span>
-        <h3>${esc(s.name)}</h3>
-        <p class="rating">${esc(s.rating)}</p>
-        <p>${esc(s.appeal)}</p>
-        ${s.pair ? `<div class="pair">${esc(s.pair)}</div>` : ""}
-        <a href="#store-${s.id}" class="btn btn-outline">詳細・料金を見る</a>
-      </div>
-    </article>`;
+:root {
+  --blue: #3B6978;
+  --blue-deep: #204051;
+  --blue-pale: #DDE7EA;
+  --bg: #F9F8F6;
+  --bg-warm: #F2EED9;
+  --text: #2E3A3F;
+  --text-soft: #5E6B70;
+  --line: #D9D3BC;
+  --accent: #C98B5E; /* 手書きメモ・差し色（くすんだ茶オレンジ） */
+  --radius: 6px;
+  --font-body: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  --font-serif: "Noto Serif JP", "Yu Mincho", serif;
 }
 
-function renderCards() {
-  document.getElementById("eyebrow-grid").innerHTML =
-    STORES.filter(s => s.type === "eyebrow").map(cardHTML).join("");
-  document.getElementById("whitening-grid").innerHTML =
-    STORES.filter(s => s.type === "whitening").map(cardHTML).join("");
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+ul { list-style: none; }
+[hidden] { display: none !important; }
+strong { background: linear-gradient(transparent 62%, #EBDD9C 62%); font-weight: 700; }
+.small { font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+
+/* ---------- 共通パーツ ---------- */
+h1, h2, h3 { font-family: var(--font-serif); color: var(--blue-deep); line-height: 1.5; font-weight: 700; }
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: .18em;
+  color: var(--blue);
+  margin-bottom: 8px;
+  text-transform: lowercase;
+}
+.section-head { text-align: center; margin-bottom: 48px; }
+.section-head.left { text-align: left; }
+.section-head h2 { font-size: clamp(24px, 3.6vw, 32px); }
+.section-note { margin-top: 14px; color: var(--text-soft); font-size: 15px; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  text-align: center;
+  transition: transform .2s, background .2s, color .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--blue); color: #fff; border: 2px solid var(--blue); }
+.btn-primary:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+.btn-outline { border: 2px solid var(--blue); color: var(--blue); background: transparent; padding: 10px 22px; font-size: 14px; }
+.btn-outline:hover { background: var(--blue); color: #fff; }
+.btn-wide { display: block; margin-top: 22px; }
+
+/* 写真：画像がまだ無いときも、やさしい色の枠に店名が出る */
+.photo {
+  position: relative;
+  background: var(--blue-pale);
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.photo::before {
+  content: attr(data-label);
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif);
+  color: var(--blue);
+  opacity: .55;
+  font-size: 15px;
+  letter-spacing: .1em;
+}
+.photo img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- ヘッダー ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 5vw;
+  background: rgba(249, 248, 246, .96);
+  border-bottom: 1px solid var(--line);
+}
+.logo { text-decoration: none; font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--blue-deep); }
+.logo small { font-family: var(--font-body); font-size: 11px; letter-spacing: .15em; margin-left: 8px; color: var(--text-soft); font-weight: 400; }
+.gnav { display: flex; gap: 26px; }
+.gnav a { text-decoration: none; font-size: 14px; font-weight: 500; padding: 4px 0; border-bottom: 2px solid transparent; }
+.gnav a:hover { border-bottom-color: var(--blue); }
+
+/* ---------- ヒーロー ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 4vw;
+  align-items: center;
+  padding: 70px 6vw 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-sub { font-size: 13px; color: var(--text-soft); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(28px, 4.6vw, 46px); margin-bottom: 24px; }
+.hero-lead { margin-bottom: 34px; color: var(--text-soft); }
+
+.hero-photos { position: relative; height: 460px; }
+.photo-a { position: absolute; top: 0; right: 0; width: 72%; height: 330px; transform: rotate(1.5deg); box-shadow: 0 6px 18px rgba(32, 64, 81, .12); }
+.photo-b { position: absolute; bottom: 0; left: 0; width: 52%; height: 220px; transform: rotate(-2.5deg); border: 6px solid #fff; box-shadow: 0 6px 18px rgba(32, 64, 81, .14); }
+.hand-note {
+  position: absolute; bottom: 10px; right: 6%;
+  font-family: var(--font-serif);
+  color: var(--accent);
+  font-size: 17px; line-height: 1.6;
+  transform: rotate(-4deg);
 }
 
-function renderDetail(s) {
-  const rows = s.menus.map(m => `
-    <tr><th scope="row">${esc(m.name)}${m.note ? `<small>${esc(m.note)}</small>` : ""}</th><td>${m.priceText ? esc(m.priceText) : yen(m.price) + '<span class="tax">〜（税込）</span>'}</td></tr>`).join("");
-  const others = STORES.filter(o => o.id !== s.id).map(o => `<a href="#store-${o.id}">${esc(o.name)}</a>`).join("");
-  document.getElementById("detail-article").innerHTML = `
-    <a href="#${s.type === "whitening" ? "whitening" : "eyebrow"}" class="back">← お店一覧にもどる</a>
-    <div class="detail-head">
-      <div>
-        <p class="eyebrow">${esc(s.brandEn)}</p>
-        <h2>${esc(s.name)}</h2>
-        <p class="detail-appeal">${esc(s.appeal)}</p>
-        <p class="rating">${esc(s.rating)} ※ホットペッパービューティー掲載</p>
-      </div>
-      <figure class="photo" data-label="${esc(s.name)}">
-        <img src="images/${s.id}.jpg" alt="${esc(s.name)}の店内" onerror="this.remove()">
-      </figure>
-    </div>
-
-    <div class="detail-cols">
-      <section class="price-box">
-        <h3>${esc(s.name)} メニューと料金</h3>
-        <table class="price-table"><tbody>${rows}</tbody></table>
-        <p class="small">※料金はホットペッパービューティー掲載クーポン（2026年11月14日時点）をもとにしています。最新の内容は店舗ページでご確認ください。</p>
-      </section>
-
-      <section class="info-box">
-        <h3>お店の情報</h3>
-        <dl>
-          <dt>営業時間</dt><dd>${esc(s.hours)}</dd>
-          <dt>定休日</dt><dd>${esc(s.closed)}</dd>
-          <dt>住所</dt><dd>${esc(s.address)}</dd>
-          ${s.access ? `<dt>アクセス</dt><dd>${esc(s.access)}</dd>` : ""}
-          <dt>電話</dt><dd>${esc(s.tel)}</dd>
-        </dl>
-        <p class="staff-comment">${esc(s.comment)}</p>
-        <a href="${s.hp}" class="btn btn-primary btn-wide" target="_blank" rel="noopener">${esc(s.name)}をHotPepperで予約する</a>
-      </section>
-    </div>
-
-    <div class="other-stores">
-      <p>ほかのお店も見てみる</p>
-      <div>${others}</div>
-    </div>`;
+/* ---------- about ---------- */
+.about {
+  background: var(--bg-warm);
+  padding: 84px 6vw;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 5vw;
+  max-width: none;
+}
+.about > * { max-width: 560px; }
+.about .section-head { justify-self: end; margin-bottom: 0; }
+.about-body p { margin-bottom: 18px; }
+.about-points { margin-top: 28px; border-top: 1px dashed var(--line); }
+.about-points li { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px dashed var(--line); font-size: 15px; }
+.about-points span {
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--blue); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; margin-top: 2px;
 }
 
-/* ========= 画面切り替え（ハッシュで制御） ========= */
-const topView = document.getElementById("top-view");
-const detailView = document.getElementById("detail-view");
+/* ---------- 店舗一覧（雑誌風にずらす） ---------- */
+.stores { padding: 96px 5vw 90px; max-width: 1180px; margin: 0 auto; }
+.store-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 34px 28px; align-items: start; }
+.store-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 12px 12px 22px;
+  box-shadow: 0 3px 12px rgba(32, 64, 81, .09);
+  transition: transform .25s, box-shadow .25s;
+}
+.store-card:nth-child(4n+1) { transform: rotate(-.8deg); }
+.store-card:nth-child(4n+2) { margin-top: 28px; transform: rotate(.6deg); }
+.store-card:nth-child(4n+3) { margin-top: 8px; transform: rotate(-.4deg); }
+.store-card:nth-child(4n)   { margin-top: 36px; transform: rotate(.9deg); }
+.store-card:hover { transform: rotate(0) translateY(-4px); box-shadow: 0 10px 24px rgba(32, 64, 81, .16); }
+.store-card .photo { height: 170px; }
+.store-card-body { padding: 16px 8px 0; }
+.store-card h3 { font-size: 21px; margin-bottom: 6px; }
+.store-card p { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 18px; min-height: 3.6em; }
 
-function route() {
-  const hash = location.hash;
-  if (hash.startsWith("#store-")) {
-    const store = STORES.find(s => "#store-" + s.id === hash);
-    if (store) {
-      renderDetail(store);
-      topView.hidden = true;
-      detailView.hidden = false;
-      document.title = store.name + "｜眉毛専門店＆ホワイトニング";
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
+/* ---------- 店舗詳細 ---------- */
+.detail { max-width: 1060px; margin: 0 auto; padding: 44px 5vw 100px; }
+.back { display: inline-block; margin-bottom: 30px; font-size: 14px; color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); }
+.detail-head { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; margin-bottom: 56px; }
+.detail-head h2 { font-size: clamp(32px, 5vw, 44px); margin-bottom: 14px; }
+.detail-appeal { color: var(--text-soft); }
+.detail-head .photo { height: 280px; transform: rotate(1deg); box-shadow: 0 6px 18px rgba(32, 64, 81, .14); }
+
+.detail-cols { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: start; }
+.detail h3 { font-size: 20px; margin-bottom: 18px; padding-left: 12px; border-left: 4px solid var(--blue); }
+.price-box, .info-box { background: #fff; padding: 30px 28px; border-radius: var(--radius); box-shadow: 0 3px 12px rgba(32, 64, 81, .08); }
+.info-box { background: var(--bg-warm); margin-top: 24px; box-shadow: none; }
+
+.price-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+.price-table th, .price-table td { padding: 14px 6px; border-bottom: 1px dashed var(--line); text-align: left; vertical-align: middle; }
+.price-table th { font-weight: 500; font-size: 15px; }
+.price-table th small { display: block; font-size: 12px; color: var(--text-soft); font-weight: 400; }
+.price-table td { text-align: right; font-family: var(--font-serif); font-size: 19px; font-weight: 700; color: var(--blue-deep); white-space: nowrap; }
+.price-table .tax { font-family: var(--font-body); font-size: 11px; color: var(--text-soft); font-weight: 400; margin-left: 2px; }
+.price-table tr:last-child th, .price-table tr:last-child td { border-bottom: none; }
+
+.info-box dl { display: grid; grid-template-columns: 5.5em 1fr; gap: 10px 10px; font-size: 14px; }
+.info-box dt { font-weight: 700; color: var(--blue); }
+.staff-comment { margin-top: 20px; padding: 12px 14px; background: #fff; border-radius: var(--radius); font-size: 14px; position: relative; }
+
+.other-stores { margin-top: 64px; padding-top: 26px; border-top: 1px dashed var(--line); text-align: center; }
+.other-stores p { font-size: 14px; color: var(--text-soft); margin-bottom: 12px; }
+.other-stores div { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.other-stores a { text-decoration: none; font-size: 14px; padding: 6px 16px; border: 1px solid var(--blue); border-radius: 30px; color: var(--blue); }
+.other-stores a:hover { background: var(--blue); color: #fff; }
+
+/* ---------- 採用 ---------- */
+.recruit { background: var(--blue-deep); color: #F4F1E6; padding: 90px 6vw; }
+.recruit-inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+.recruit h2 { color: #fff; font-size: clamp(24px, 3.6vw, 32px); margin-bottom: 22px; }
+.recruit .eyebrow { color: #A9C4CE; }
+.recruit-text p { margin-bottom: 14px; }
+.recruit-photo { height: 380px; transform: rotate(-1.8deg); border: 8px solid #F9F8F6; border-radius: 3px; background: #355A6A; }
+.recruit-photo::before { color: #DDE7EA; }
+.recruit-list { margin: 20px 0 30px; }
+.recruit-list li { position: relative; padding: 6px 0 6px 26px; font-size: 15px; }
+.recruit-list li::before { content: ""; position: absolute; left: 4px; top: 16px; width: 9px; height: 9px; border-radius: 50%; background: #EBDD9C; }
+.recruit .btn-primary { background: #F2EED9; color: var(--blue-deep); border-color: #F2EED9; }
+.recruit .btn-primary:hover { background: #fff; border-color: #fff; }
+.recruit .small { color: #A9C4CE; margin-top: 12px; }
+
+/* ---------- FAQ ---------- */
+.faq { padding: 96px 5vw 100px; max-width: 800px; margin: 0 auto; }
+.faq-list details { background: #fff; border-radius: var(--radius); margin-bottom: 14px; border: 1px solid var(--line); }
+.faq-list summary { cursor: pointer; padding: 18px 54px 18px 56px; font-weight: 700; font-size: 15.5px; list-style: none; position: relative; line-height: 1.7; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::before { content: "Q"; position: absolute; left: 18px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: #fff; text-align: center; line-height: 28px; font-family: var(--font-serif); font-size: 14px; }
+.faq-list summary::after { content: "＋"; position: absolute; right: 18px; top: 16px; color: var(--blue); font-size: 18px; }
+.faq-list details[open] summary::after { content: "－"; }
+.faq-list details p { padding: 0 24px 22px 56px; color: var(--text-soft); font-size: 15px; }
+
+/* ---------- フッター ---------- */
+.site-footer { text-align: center; padding: 48px 5vw 40px; background: var(--bg-warm); font-size: 14px; color: var(--text-soft); }
+.footer-logo { font-family: var(--font-serif); font-size: 22px; color: var(--blue-deep); font-weight: 700; margin-bottom: 6px; }
+
+/* ---------- スマホ ---------- */
+@media (max-width: 860px) {
+  .gnav { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 40px 6vw 60px; }
+  .hero-photos { height: 380px; }
+  .photo-a { height: 250px; }
+  .photo-b { height: 170px; }
+  .about { grid-template-columns: 1fr; padding: 60px 6vw; }
+  .about .section-head { justify-self: start; margin-bottom: 24px; }
+  .store-card:nth-child(n) { margin-top: 0; }
+  .detail-head, .detail-cols, .recruit-inner { grid-template-columns: 1fr; }
+  .detail-head .photo { height: 220px; order: -1; }
+  .recruit-photo { height: 260px; }
+  .recruit-inner { gap: 40px; }
+  .stores, .faq { padding-top: 64px; padding-bottom: 64px; }
+}
+@media (max-width: 480px) {
+  .site-header { padding: 12px 5vw; }
+  .logo { font-size: 21px; }
+  .price-box, .info-box { padding: 24px 18px; }
+  .faq-list summary { padding-left: 52px; font-size: 15px; }
+  .faq-list details p { padding-left: 24px; }
+}
+
+/* ============================================================
+   v2追加分：2事業（眉毛／ホワイトニング）・ブランド表示・口コミ
+   ============================================================ */
+.stores.alt { background: #fff; max-width: none; padding-left: 5vw; padding-right: 5vw; }
+.stores.alt .store-grid { max-width: 1180px; margin: 0 auto; }
+.stores.alt .section-head { max-width: 1180px; margin-left: auto; margin-right: auto; }
+.brand-tag {
+  display: inline-block;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .12em;
+  color: var(--blue-deep); background: var(--blue-pale);
+  border-radius: 20px; padding: 3px 12px; margin-bottom: 8px;
+}
+.brand-tag.white { background: var(--bg-warm); color: var(--accent); }
+.store-card .rating { font-size: 13px; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+.store-card .pair {
+  font-size: 12.5px; color: var(--blue-deep); background: var(--bg-warm);
+  border-radius: 4px; padding: 7px 10px; margin-bottom: 14px; line-height: 1.6;
+}
+.detail .rating { font-size: 15px; color: var(--accent); font-weight: 700; margin-top: 6px; }
+.hero .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.logo { font-size: 21px; }
+@media (max-width: 480px) { .logo { font-size: 18px; } }
+
+/* ============================================================
+   v3追加分：お客様指定のヘッダー構成＋大人っぽい雰囲気への調整
+   ============================================================ */
+/* --- 上部の帯（クリーム色） --- */
+.band {
+  background: var(--blue-pale);
+  color: var(--blue-deep);
+  text-align: center;
+  font-size: 12.5px;
+  letter-spacing: .14em;
+  padding: 9px 5vw;
+}
+.band-sub {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  border-top: 1px solid var(--line);
+  padding-top: 7px; padding-bottom: 7px;
+}
+.band-links { display: flex; gap: 34px; }
+.band-links a { text-decoration: none; font-size: 13px; letter-spacing: .1em; color: var(--blue-deep); }
+.band-links a:hover { color: var(--blue-deep); }
+.band-btn {
+  position: absolute; right: 5vw; top: 50%; transform: translateY(-50%);
+  background: var(--blue); color: #fff; text-decoration: none;
+  font-size: 13px; font-weight: 700; letter-spacing: .08em;
+  padding: 8px 22px; border-radius: 999px;
+}
+.band-btn:hover { background: var(--blue-deep); }
+
+/* --- メインヘッダー（白地） --- */
+.site-header { background: #fff; border-bottom: 1px solid var(--line); }
+.btn-line {
+  background: #06C755; color: #fff; text-decoration: none;
+  font-weight: 700; font-size: 14.5px; letter-spacing: .06em;
+  padding: 13px 26px; border-radius: 999px; white-space: nowrap;
+}
+.btn-line:hover { opacity: .88; }
+
+/* --- 大文字英語＋日本語のナビ --- */
+.main-nav {
+  background: #fff;
+  display: flex; justify-content: center; gap: 44px;
+  padding: 12px 5vw 14px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.main-nav a { text-decoration: none; text-align: center; font-size: 13px; color: var(--text); line-height: 1.5; letter-spacing: .08em; }
+.main-nav a span { display: block; font-size: 10.5px; letter-spacing: .28em; color: var(--blue); font-weight: 500; }
+.main-nav a:hover span { color: var(--blue-deep); }
+
+@media (max-width: 860px) {
+  .main-nav { display: none; }
+  .band-btn { position: static; transform: none; margin-left: 20px; }
+  .band-sub { justify-content: space-between; }
+  .btn-line { padding: 10px 18px; font-size: 13px; }
+}
+
+/* ============================================================
+   v4追加分：全面写真のFV（参考サイトの見せ方）
+   ============================================================ */
+.hero-fv {
+  position: relative;
+  min-height: 92vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: linear-gradient(120deg, #DDE7EA 0%, #A9C3CE 55%, #6E97A8 100%);
+}
+.hero-fv-photo { position: absolute; inset: 0; border-radius: 0; background: transparent; }
+.hero-fv-photo::before { font-size: 18px; color: rgba(32,64,81,.55); }
+.hero-fv-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-fv::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(23,44,56,.45) 0%, rgba(23,44,56,.14) 55%, rgba(23,44,56,0) 75%);
+}
+.hero-fv-inner { position: relative; z-index: 2; padding: 100px 6vw; max-width: 780px; color: #fff; }
+.hero-fv-over { font-size: 12.5px; letter-spacing: .3em; margin-bottom: 22px; color: #EAF1F4; }
+.hero-fv-inner h1 {
+  color: #fff; font-weight: 500;
+  font-size: clamp(32px, 5.6vw, 56px); line-height: 1.5; letter-spacing: .06em;
+  text-shadow: 0 2px 18px rgba(23,44,56,.4);
+  margin-bottom: 22px;
+}
+.hero-fv-lead { font-size: 15.5px; line-height: 2; color: rgba(255,255,255,.92); text-shadow: 0 1px 10px rgba(23,44,56,.45); }
+.hero-fv-script { font-family: "Great Vibes", cursive; font-size: clamp(26px, 3.4vw, 36px); color: #F2EED9; margin: 18px 0 30px; }
+.btn-glass {
+  background: rgba(255,255,255,.14); color: #fff;
+  border: 1.5px solid rgba(255,255,255,.85);
+  backdrop-filter: blur(2px);
+}
+.btn-glass:hover { background: rgba(255,255,255,.3); }
+@media (max-width: 860px) {
+  .hero-fv { min-height: 80vh; }
+  .hero-fv::after { background: linear-gradient(180deg, rgba(23,44,56,.32), rgba(23,44,56,.5)); }
+  .hero-fv-inner { padding: 70px 6vw; }
+}
+
+/* v6：FV写真の見え方（縦長写真のため、顔まわりが見える位置に） */
+.hero-fv-photo img { object-position: center 28%; }
+
+/* v7：FVスライド（2枚をクロスフェードで切替） */
+.hero-fv-photo .fv-slide {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 28%;
+  opacity: 0; transition: opacity 1.6s ease;
+}
+.hero-fv-photo .fv-slide.is-active { opacity: 1; z-index: 1; }
+
+/* ============================================================
+   v8：お客様の完成写真に合わせ、FVは写真そのまま表示に
+   ============================================================ */
+.logo-img { height: 48px; width: auto; display: block; border-radius: 8px; }
+.hero-fv { min-height: 0; height: min(88vh, 56.25vw); display: block; }
+.hero-fv::after { display: none; }
+.fv-slide { object-position: center; }
+.fv-message { padding: 60px 6vw 6px; text-align: center; }
+.fm-over { font-size: 12.5px; letter-spacing: .3em; color: var(--blue); margin-bottom: 18px; }
+.fv-message h1 {
+  font-family: var(--font-head); font-weight: 600;
+  font-size: clamp(28px, 4.6vw, 44px); line-height: 1.55; letter-spacing: .05em;
+  color: var(--blue-deep); margin-bottom: 18px;
+}
+.fm-lead { color: var(--text-soft); font-size: 15px; line-height: 2; }
+.fm-script { font-family: "Great Vibes", cursive; font-size: clamp(26px, 3.4vw, 34px); color: var(--accent); margin: 14px 0 26px; }
+.fv-message .btn-row { justify-content: center; }
+.btn-outline { background: #fff; color: var(--blue-deep); border: 1.5px solid var(--blue); }
+.btn-outline:hover { background: var(--blue-pale); }
+
+/* ============================================================
+   v9：PC・スマホ表示の調整（違和感の解消）
+   ============================================================ */
+/* 見出しフォントの指定ミスを修正（--font-head は未定義だった） */
+.fv-message h1 { font-family: var(--font-serif); }
+/* ボタン行の基本形（.hero の外でも効くように） */
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+/* FV下の2ボタンの大きさ・太さを揃える */
+.fv-message .btn { padding: 13px 30px; font-size: 15px; }
+.fv-message .btn-outline { border: 2px solid var(--blue); background: #fff; color: var(--blue-deep); }
+/* FVは画像の比率そのまま表示（上下が切れない） */
+.hero-fv { height: auto; aspect-ratio: 16 / 9; }
+
+@media (max-width: 860px) {
+  /* スマホでもナビを消さず、横スクロールで出す */
+  .main-nav {
+    display: flex; flex-wrap: nowrap; justify-content: flex-start;
+    overflow-x: auto; gap: 30px; padding: 10px 5vw 12px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
-  detailView.hidden = true;
-  topView.hidden = false;
-  document.title = SITE_TITLE;
-  const target = hash && hash !== "#top" ? document.querySelector(hash) : null;
-  if (target) target.scrollIntoView({ behavior: "smooth" });
-  else window.scrollTo({ top: 0, behavior: "smooth" });
+  .main-nav::-webkit-scrollbar { display: none; }
+  .main-nav a { flex: none; }
+  /* 帯のキャッチコピーが小さな画面で折り返さないように */
+  .band { font-size: 11px; letter-spacing: .06em; }
+  .logo-img { height: 42px; }
+  .fv-message { padding-top: 44px; }
+}
+@media (max-width: 640px) {
+  .fm-over { font-size: 11px; letter-spacing: .18em; line-height: 1.9; }
+  /* FV下のボタンは縦並び・幅そろえで見やすく */
+  .fv-message .btn-row { flex-direction: column; align-items: center; }
+  .fv-message .btn { width: min(320px, 86vw); }
+}
+@media (max-width: 480px) {
+  .band-links { gap: 22px; }
+  .band-btn { margin-left: 12px; padding: 8px 16px; }
+  .price-table th { font-size: 14px; }
+  .price-table td { font-size: 17px; }
 }
 
-renderCards();
-window.addEventListener("hashchange", route);
-route();
-</script>
 
-  <script>
-  // FVスライド：約6秒ごとにゆっくりクロスフェード
-  (function () {
-    var slides = document.querySelectorAll(".fv-slide");
-    if (slides.length < 2) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var i = 0;
-    setInterval(function () {
-      slides[i].classList.remove("is-active");
-      i = (i + 1) % slides.length;
-      slides[i].classList.add("is-active");
-    }, 6000);
-  })();
-  </script>
-</body>
-</html>
+/* v13：電話表示を外したため、ヘッダーはロゴのみを左寄せ */
+.site-header { justify-content: flex-start; }
+
+/* ============================================================
+   v14：スマホ表示の改善（実表示を撮影して確認したうえで調整）
+   ============================================================ */
+@media (max-width: 860px) {
+  /* ヘッダーの積み重なりを薄くして、FVが早く出てくるように */
+  .band { padding: 6px 5vw; }
+  .band-sub { padding-top: 5px; padding-bottom: 5px; }
+  .site-header { padding: 8px 5vw; }
+  .logo-img { height: 36px; }
+  .main-nav { padding: 8px 5vw 9px; gap: 24px; }
+  .main-nav a { font-size: 12.5px; }
+  .main-nav a span { font-size: 10px; letter-spacing: .22em; }
+  /* ナビの右端をフェードさせて「横にスクロールできる」見た目に */
+  .main-nav {
+    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+  }
+}
+@media (max-width: 640px) {
+  .price-table td { font-size: 16px; }
+  .price-table th { padding-right: 10px; }
+  .detail-head h2 { font-size: 26px; }
+}
