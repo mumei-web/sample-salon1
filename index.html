@@ -1,4 +1,4 @@
-<!-- index.html — 本制作たたき台v2（仮制作の構成・仕組みを踏襲し、実データに差し替え） -->
+<!-- index.html — 本制作たたき台v12（料金は期間限定クーポンを除き全件掲載・採用フォームURL反映） -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -28,7 +28,6 @@
       <span>電話予約はこちら</span>
       <strong>03-0000-0000<small>（受付 10:00 - 20:00）</small></strong>
     </div>
-    <a class="btn-line" href="#">LINEで予約する</a>
   </div>
 </header>
 <nav class="main-nav" aria-label="メインメニュー">
@@ -110,7 +109,7 @@
             <li>職種：眉毛サロンスタッフ／ホワイトニングスタッフ</li>
             <li>お店見学だけの参加も大歓迎です</li>
           </ul>
-          <a href="https://forms.gle/xxxxxxxxxxxx" class="btn btn-primary" target="_blank" rel="noopener">Googleフォームから応募する</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScioyRLbJinTWCiEUjoCBJADLF4UkJIu0IgXylwB3P2kunfPg/viewform?usp=publish-editor" class="btn btn-primary" target="_blank" rel="noopener">Googleフォームから応募する</a>
           <p class="small">※まずは見学希望だけでもお気軽にどうぞ</p>
         </div>
       </div>
@@ -164,7 +163,7 @@
 
 <script>
 /* ========= 店舗データ（ホットペッパービューティー掲載情報 2026-11-14時点） ========= */
-/* menus は掲載確認できたもののみ。price は数値（円）、割引表記は priceText で記載 */
+/* menus は各店の掲載クーポン（2026-11-14に確認、期間限定クーポンは除外）。price は数値（円）、割引表記は priceText で記載 */
 const STORES = [
   /* ---------- 眉毛サロン ---------- */
   { id: "kawaguchi", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
@@ -178,10 +177,11 @@ const STORES = [
       { name: "美眉アイブロウWAX＋毛量調整", note: "人気No.1", price: 4980 },
       { name: "美眉アイブロウWAX（女性・新規）", note: "", price: 4200 },
       { name: "美眉アイブロウWAX（男性・新規）", note: "男性限定", price: 4200 },
+      { name: "眉毛＋パーツ脱毛", note: "当店No.2／鼻 or 口 or Cゾーン", price: 4500 },
       { name: "美眉ワックス脱毛（U24学割）", note: "学生証の提示が必要です", price: 4000 },
-      { name: "眉毛＋パーツ脱毛", note: "鼻 or 口 or Cゾーン", price: 4500 },
-      { name: "眉毛＋顔ワックス脱毛", note: "額 or 頬周り", price: 5200 },
+      { name: "メンズ美眉ワックス脱毛", note: "男性・2回目以降", price: 5980 },
       { name: "美眉ワックス脱毛＋間引きセット", note: "2回目以降の方", price: 6200 },
+      { name: "美眉ワックス脱毛（学割U24）", note: "リピーター限定", price: 4980 },
       { name: "眉毛＋全顔ワックス脱毛", note: "", price: 12000 }
     ] },
   { id: "omiya", type: "eyebrow", brand: "eyeroom", brandEn: "eyeroom",
@@ -192,7 +192,15 @@ const STORES = [
     comment: "ホットペッパービューティーの口コミは4.88と、全店でもトップクラスの評価をいただいています。",
     hp: "https://beauty.hotpepper.jp/kr/slnH000818984/",
     menus: [
-      { name: "美眉アイブロウWAX＋間引き（毛量調整）", note: "人気No.1", price: 4980 }
+      { name: "美眉アイブロウWAX＋間引き（毛量調整）", note: "人気No.1", price: 4980 },
+      { name: "美眉アイブロウWAX（女性）", note: "新規", price: 4400 },
+      { name: "美眉アイブロウWAX（男性）", note: "男性限定・新規", price: 4500 },
+      { name: "眉毛＋パーツ脱毛", note: "人気No.2／鼻 or 口 or Cゾーン", price: 4980 },
+      { name: "眉毛＋全顔ワックス脱毛", note: "", price: 13000 },
+      { name: "美眉ワックス脱毛", note: "リピーター限定", price: 5500 },
+      { name: "美眉ワックス脱毛＋間引き（毛量調整）", note: "2回目以降", price: 6300 },
+      { name: "美眉ワックス脱毛（学割U24）", note: "リピーター限定", price: 4980 },
+      { name: "美眉アイブロウスタイリング相談", note: "相談後にメニューを決定", priceText: "無料" }
     ] },
   { id: "kawagoe", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
     name: "アイブロウドット 川越店", rating: "★4.83（口コミ170件）",
@@ -203,7 +211,17 @@ const STORES = [
     comment: "ホットペッパービューティーの口コミは4.83（170件）と高評価をいただいています。",
     hp: "https://beauty.hotpepper.jp/kr/slnH000685765/",
     menus: [
-      { name: "女性アイブロウWAX＋パーツ脱毛", note: "人気No.1／額 or 頬", price: 5500 }
+      { name: "女性アイブロウWAX＋パーツ脱毛", note: "人気No.1／額 or 頬", price: 5500 },
+      { name: "女性アイブロウWAX＋パーツ脱毛", note: "人気No.2／鼻 or 口 or Cゾーン", price: 5000 },
+      { name: "美眉アイブロウスタイリング", note: "新規", price: 4880 },
+      { name: "メンズアイブロウ眉毛スタイリング", note: "男性・新規", priceText: "￥5,500 → ￥4,980" },
+      { name: "男性アイブロウスタイリング＋パーツ脱毛", note: "男性限定・新規／額 or 頬", price: 6500 },
+      { name: "まつげパーマ", note: "新規／トリートメント or アイシャンプー込", price: 5000 },
+      { name: "アイブロウWAX＋まつげパーマ", note: "新規", price: 8800 },
+      { name: "選べるまつげパーマ", note: "2回目以降", price: 5500 },
+      { name: "アイブロウスタイリング（女性）", note: "再来", price: 5500 },
+      { name: "メンズアイブロウ眉毛スタイリング", note: "男性・再来", price: 5980 },
+      { name: "アイブロウスタイリング", note: "学割U24・男性・再来", price: 5500 }
     ] },
   { id: "shinkoshigaya", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
     name: "アイブロウドット 新越谷店", rating: "★4.74（口コミ146件）",
@@ -213,7 +231,22 @@ const STORES = [
     comment: "ホットペッパービューティーの口コミは4.74（146件）と高評価をいただいています。",
     hp: "https://beauty.hotpepper.jp/kr/slnH000777968/",
     menus: [
-      { name: "黄金比アイブロウWAX＋毛量調整", note: "人気No.1", price: 4780 }
+      { name: "黄金比アイブロウWAX＋毛量調整", note: "人気No.1", price: 4780 },
+      { name: "美眉アイブロウスタイリング", note: "女性・新規", price: 3880 },
+      { name: "骨格診断つきアイブロウスタイリング", note: "男性限定・新規", price: 3980 },
+      { name: "アイブロウスタイリング", note: "平日・当日予約限定／新規", price: 3600 },
+      { name: "アイブロウスタイリング＋パーツ脱毛", note: "女性・新規／鼻 or 口 or Cゾーン", price: 4780 },
+      { name: "アイブロウスタイリング＋顔WAX脱毛", note: "女性・新規／額 or 頬周り", price: 5780 },
+      { name: "アイブロウスタイリング＋顔WAX脱毛", note: "女性・新規／額＋Cゾーン", price: 6380 },
+      { name: "アイブロウスタイリング＋顔WAX脱毛", note: "メンズ・新規／額＋Cゾーン", price: 6480 },
+      { name: "デザイン選べるまつげパーマ", note: "新規", price: 4500 },
+      { name: "上下まつげパーマ", note: "新規", price: 7500 },
+      { name: "アイブロウスタイリング＋まつげパーマ", note: "新規", price: 7500 },
+      { name: "アイブロウスタイリング＋間引きセット", note: "2回目以降", price: 6100 },
+      { name: "アイブロウスタイリング＋パーツWAX脱毛", note: "2回目以降／鼻 or Cゾーン or 口", price: 6100 },
+      { name: "アイブロウスタイリング（女性限定）", note: "再来", price: 5200 },
+      { name: "メンズアイブロウスタイリング", note: "再来", price: 5500 },
+      { name: "完全オーダーメイド診断", note: "施術料金は別途", priceText: "無料" }
     ] },
   { id: "shizuoka", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
     name: "アイブロウドット 静岡店", rating: "★4.62（口コミ299件）",
@@ -223,7 +256,17 @@ const STORES = [
     comment: "ホットペッパービューティーの口コミは299件と、多くのお客様にご利用いただいています。",
     hp: "https://beauty.hotpepper.jp/kr/slnH000735936/",
     menus: [
-      { name: "アイブロウ＋パーツ脱毛", note: "人気No.1／鼻 or 口 or Cゾーン", price: 4700 }
+      { name: "アイブロウ＋パーツ脱毛", note: "人気No.1／鼻 or 口 or Cゾーン", price: 4700 },
+      { name: "アイブロウスタイリング＋間引きセット", note: "新規", price: 4600 },
+      { name: "アイブロウスタイリング＋顔WAX脱毛", note: "新規／額 or 頬周り", price: 5700 },
+      { name: "選べるまつ毛パーマ＆アイブロウWAX", note: "新規", price: 8000 },
+      { name: "アイブロウスタイリング", note: "再来", price: 5500 },
+      { name: "アイブロウ＋間引きセット", note: "全員", price: 6000 },
+      { name: "アイブロウ＋パーツ脱毛", note: "全員", price: 6600 },
+      { name: "アイブロウ＋顔WAX脱毛", note: "全員／額 or 頬周り", price: 6980 },
+      { name: "アイブロウスタイリング＋全顔WAX脱毛", note: "全員", price: 10500 },
+      { name: "美眉アイブロウWAX", note: "学割U24／骨格診断つき", price: 4980 },
+      { name: "美眉アイブロウスタイリング相談", note: "相談後にメニューを決定", priceText: "無料" }
     ] },
   { id: "shinjuku", type: "eyebrow", brand: "iBROW.", brandEn: "ibrow",
     name: "アイブロウドット 新宿店", rating: "★4.84（口コミ652件）",
@@ -234,7 +277,21 @@ const STORES = [
     comment: "ホットペッパービューティーの口コミは4.84（652件）。多くのリピーター様に支えられている店舗です。",
     hp: "https://beauty.hotpepper.jp/kr/slnH000749485/",
     menus: [
-      { name: "眉毛アイブロウWAXデザイン＋間引き", note: "人気No.1", price: 5200 }
+      { name: "眉毛アイブロウWAXデザイン＋間引き", note: "人気No.1・新規", price: 5200 },
+      { name: "眉毛アイブロウWAXデザイン", note: "初めての方・新規", price: 4200 },
+      { name: "眉毛アイブロウWAXデザイン", note: "当日予約限定・新規", priceText: "￥4,500 → ￥3,980" },
+      { name: "眉毛アイブロウWAXデザイン（女性）", note: "平日限定・新規", price: 4000 },
+      { name: "眉毛アイブロウWAXデザイン（男性）", note: "平日限定・新規", price: 4000 },
+      { name: "眉毛アイブロウWAXデザイン＋パーツ脱毛", note: "新規／鼻 or 口 or Cゾーン", price: 5200 },
+      { name: "眉毛アイブロウWAXデザイン＋顔WAX脱毛", note: "新規／額 or 頬周り", price: 6200 },
+      { name: "デザイン選べるオリジナルまつげパーマ", note: "新規", price: 4500 },
+      { name: "韓国風束感まつげパーマ", note: "新規／アイシャンプー＆トリートメント込", price: 5400 },
+      { name: "眉毛アイブロウ＋まつげパーマ", note: "新規", price: 8980 },
+      { name: "眉毛アイブロウWAXデザイン＋間引き", note: "全員", price: 5980 },
+      { name: "眉毛アイブロウWAXデザイン（女性）", note: "女性・再来限定", price: 4980 },
+      { name: "眉毛アイブロウWAXデザイン＋全顔WAX脱毛", note: "全員", price: 12000 },
+      { name: "デザイン選べるオリジナルまつげパーマ", note: "2回目以降", price: 5200 },
+      { name: "眉毛アイブロウWAXデザイン", note: "学割U24", price: 3800 }
     ] },
 
   /* ---------- ホワイトニング ---------- */
@@ -248,7 +305,15 @@ const STORES = [
     hp: "https://beauty.hotpepper.jp/kr/slnH000818615/",
     menus: [
       { name: "回数券コース", note: "人気No.1／20分×20回", priceText: "￥69,800 → ￥38,800" },
-      { name: "WHITEプレミアム美白コース", note: "60分照射", priceText: "￥29,800 → ￥14,800" }
+      { name: "回数券コース", note: "人気No.3／20分×10回", priceText: "￥34,900 → ￥28,800" },
+      { name: "WHITEプレミアム美白コース", note: "新規／60分照射", priceText: "￥29,800 → ￥14,800" },
+      { name: "セルフホワイトニング", note: "新規／17分×2回", priceText: "￥6,000 → ￥2,500" },
+      { name: "セルフホワイトニング", note: "学割U24・新規／17分×2回", priceText: "￥6,980 → ￥2,000" },
+      { name: "ブライダル 1Day集中コース", note: "新規／20分×3回", price: 9800 },
+      { name: "美白セルフホワイトニング", note: "全員／照射40分", price: 6980 },
+      { name: "ペア来店予約", note: "全員／15分×2回照射・予約時はお電話ください", priceText: "￥9,960 → ￥4,980" },
+      { name: "セルフホワイトニング（歯科提携）", note: "当日ご成約の方限定", priceText: "￥2,500 → ￥0" },
+      { name: "回数券の会員様限定（ご予約用）", note: "回数券をお持ちの方専用", priceText: "￥0" }
     ] },
   { id: "kawagoe-white", type: "whitening", brand: "WHITE", brandEn: "white",
     name: "ホワイト 川越店", rating: "★4.70（口コミ167件）",
@@ -259,7 +324,16 @@ const STORES = [
     comment: "ホットペッパービューティーの口コミは4.70（167件）と高評価をいただいています。",
     hp: "https://beauty.hotpepper.jp/kr/slnH000685764/",
     menus: [
-      { name: "セルフホワイトニング", note: "人気No.1／20分×2回", priceText: "￥6,000 → ￥2,500" }
+      { name: "セルフホワイトニング", note: "人気No.1／20分×2回", priceText: "￥6,000 → ￥2,500" },
+      { name: "回数券10回券", note: "当店人気No.1／40分×10回", priceText: "￥80,000 → ￥40,000" },
+      { name: "セルフホワイトニング 照射30分", note: "学割U24・人気No.2", price: 1500 },
+      { name: "1日完結セルフホワイトニング", note: "新規／1日で白くしたい方へ", price: 6980 },
+      { name: "セルフホワイトニング", note: "誕生日月限定・新規", priceText: "￥1,980 → ￥500" },
+      { name: "セルフホワイトニング", note: "ご紹介様限定・新規", price: 1000 },
+      { name: "ブライダル 1Day集中コース", note: "20分×3回", price: 9800 },
+      { name: "セルフホワイトニング 30分", note: "学割U24", price: 6000 },
+      { name: "無料カウンセリング", note: "メニューはご来店後に相談", priceText: "無料" },
+      { name: "回数券の会員様限定（ご予約用）", note: "回数券をご購入の方限定", priceText: "￥0" }
     ] }
 ];
 
@@ -314,7 +388,7 @@ function renderDetail(s) {
       <section class="price-box">
         <h3>${esc(s.name)} メニューと料金</h3>
         <table class="price-table"><tbody>${rows}</tbody></table>
-        <p class="small">※その他のメニュー・クーポンは、ホットペッパービューティーの店舗ページでご確認ください。</p>
+        <p class="small">※料金はホットペッパービューティー掲載クーポン（2026年11月14日時点）をもとにしています。最新の内容は店舗ページでご確認ください。</p>
       </section>
 
       <section class="info-box">
