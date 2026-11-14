@@ -1,4 +1,3 @@
-<!-- index.html — 本制作たたき台v13（右上の電話表示を削除・FVスライド表示を修正） -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -46,7 +45,7 @@
     <section class="fv-message">
       <p class="fm-over">EYEBROW SALON &amp; WHITENING — 全8店舗</p>
       <h1>似合う眉と、白い歯。<br>第一印象は、つくれる。</h1>
-      <p class="fm-lead">眉毛専門店「iBROW.」「eyeroom」と、ホワイトニング「SHIRO」「WHITE」。<br>川口・大宮・川越・新越谷・静岡・新宿でお待ちしています。</p>
+      <p class="fm-lead">眉毛専門店「iBROW.」「eyeroom」と、<br>ホワイトニング「SHIRO」「WHITE」。<br>川口・大宮・川越・新越谷・静岡・新宿でお待ちしています。</p>
       <p class="fm-script">be yourself, beautifully</p>
       <div class="btn-row">
         <a href="#eyebrow" class="btn btn-primary">眉毛サロンをさがす</a>
@@ -371,7 +370,7 @@ function renderDetail(s) {
         <p class="eyebrow">${esc(s.brandEn)}</p>
         <h2>${esc(s.name)}</h2>
         <p class="detail-appeal">${esc(s.appeal)}</p>
-        <p class="rating">${esc(s.rating)} ※ホットペッパービューティー掲載</p>
+        <p class="rating">${esc(s.rating)} ※ホットペッパー掲載</p>
       </div>
       <figure class="photo" data-label="${esc(s.name)}">
         <img src="images/${s.id}.jpg" alt="${esc(s.name)}の店内" onerror="this.remove()">
